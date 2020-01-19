@@ -14,7 +14,7 @@ public class Tree {
 		do {
 			System.out.println("\n\n********************************\n\t1.isEmpty\n\t" + "2.Print Tree(Traversals)\n\t"
 					+ "3.Insert\n\t" + "4.Update\n\t" + "5.Delete\n\t" + "6.Search\n\t" + "7.Height of Tree\n\t"
-					+ "8.\n\t" + "20.exit\n" + "********************************enter choice:");
+					+ "8.exit\n" + "********************************enter choice:");
 
 			choice = Integer.parseInt(br.readLine());
 			switch (choice) {
@@ -24,24 +24,32 @@ public class Tree {
 			case 2:
 				TreeTraversals traverse = new TreeTraversals();
 				System.out.println();
-				System.out.println("InOrder:");
-				traverse.inOrder(root);
+				if (!tree.isEmpty()) {
+					System.out.println("InOrder:");
+					traverse.inOrder(root);
 
-				System.out.println();
-				System.out.println("PreOrder:");
-				traverse.preOrder(root);
+					System.out.println();
+					System.out.println("PreOrder:");
+					traverse.preOrder(root);
 
-				System.out.println();
-				System.out.println("PostOrder:");
-				traverse.postOrder(root);
+					System.out.println();
+					System.out.println("PostOrder:");
+					traverse.postOrder(root);
+
+					System.out.println();
+					System.out.println("LevelOrder:");
+					traverse.levelOrder(root);
+				} else
+					System.out.println("Tree is empty..");
 				break;
 			case 3:
+				TreeInsert treeInsert = new TreeInsert();
 				System.out.println("Enter no.of elements:");
 				int n = Integer.parseInt(br.readLine()), element;
 				for (int i = 0; i < n; i++) {
 					System.out.println("Enter element:");
 					element = Integer.parseInt(br.readLine());
-					tree.insert(element);
+					root = treeInsert.insert(root, element);
 				}
 				break;
 			case 4:
@@ -49,16 +57,19 @@ public class Tree {
 			case 5:
 				break;
 			case 6:
+				System.out.println("Enter element to search:");
+				element = Integer.parseInt(br.readLine());
+				TreeSearch treeSearch = new TreeSearch();
+				if (!tree.isEmpty())
+					System.out.println(treeSearch.search(root, element));
+				else
+					System.out.println("Tree is Empty..");
 				break;
 			case 7:
+				TreeHeight treeHeight = new TreeHeight();
+				System.out.println("Tree height:" + treeHeight.height(root));
 				break;
-			case 8:
-				break;
-			case 9:
-				break;
-			case 10:
-				break;
-			case 20:// exit
+			case 8:// exit
 				System.out.println("bye bye..");
 				System.exit(0);
 				break;
@@ -66,38 +77,10 @@ public class Tree {
 				System.out.println("Choose correct choice..");
 				break;
 			}
-		} while (choice != 20);
-
+		} while (choice != 8);
 	}
 
 	public boolean isEmpty() {// checks Tree is Empty or not
 		return root == null;
 	}
-
-	public void insert(int data) {
-		TreeNode node = new TreeNode(data);
-		if (root == null) {
-			root = node;
-		} else {
-			TreeNode rootPtr = root;// current node pointer
-			TreeNode temp;// temp Node to point prev
-			while (true) {
-				temp = rootPtr;
-				if (data <= rootPtr.getData()) {// <=
-					rootPtr = rootPtr.getLeft();
-					if (rootPtr == null) {
-						temp.setLeft(node);
-						break;
-					}
-				} else {// >
-					rootPtr = rootPtr.getRight();
-					if (rootPtr == null) {
-						temp.setRight(node);
-						break;
-					}
-				}
-			}
-		}
-	}
-	
 }
