@@ -1,14 +1,20 @@
 package gfg.algos.Sorting;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class SelectionSort {
-	public static void main(String subhani[]) {
-		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt(), i, j, min_index, temp;
-		int arr[] = new int[n];
+	public static void main(String subhani[]) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int n = Integer.parseInt(st.nextToken());
+		
+		int arr[] = new int[n], i, j, min_index, temp;
+		st = new StringTokenizer(br.readLine());
 		for (i = 0; i < n; i++)
-			arr[i] = sc.nextInt();
+			arr[i] = Integer.parseInt(st.nextToken());
 
 		printArray(arr);
 		for (i = 0; i < n - 1; i++) {
@@ -24,8 +30,7 @@ public class SelectionSort {
 	}
 
 	public static void printArray(int[] array) {
-		int i;
-		for (i = 0; i < array.length; i++)
+		for (int i = 0; i < array.length; i++)
 			System.out.print(array[i] + " ");
 		System.out.println();
 	}

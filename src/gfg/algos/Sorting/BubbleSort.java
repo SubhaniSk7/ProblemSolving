@@ -1,19 +1,23 @@
 package gfg.algos.Sorting;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class BubbleSort {
 
 	public static void main(String subhani[]) throws NumberFormatException, IOException {
 
-		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int n = Integer.parseInt(st.nextToken());
 
-		int arr[] = new int[n];
-		int i, j, temp;
+		int arr[] = new int[n], i, j, temp;
+		st = new StringTokenizer(br.readLine());
 		for (i = 0; i < n; i++)
-			arr[i] = sc.nextInt();
+			arr[i] = Integer.parseInt(st.nextToken());
 
 		boolean swap = false;
 		for (i = 0; i < n; i++) {
@@ -30,7 +34,6 @@ public class BubbleSort {
 				break;
 		}
 		printArray(arr);
-
 	}
 
 	public static void printArray(int[] arr) {

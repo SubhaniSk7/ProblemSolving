@@ -145,13 +145,12 @@ public class SinglyLinkedList {
 			return;
 
 		// if position=0
-		if (position == 0) {
+		if (position == 0)
 			head = head.getNext();
-		} else {
+		else {
 			SLLNode temp = head;
-			for (int i = 1; i < position; i++) {
+			for (int i = 1; i < position; i++)
 				temp = temp.getNext();
-			}
 			temp.setNext(temp.getNext().getNext());
 		}
 
