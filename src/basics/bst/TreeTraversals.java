@@ -1,13 +1,9 @@
 package basics.bst;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.concurrent.LinkedBlockingDeque;
 
 public class TreeTraversals {
-
 	public void preOrder(TreeNode root) {
 		if (root != null) {
 			System.out.print(root.getData() + " ");

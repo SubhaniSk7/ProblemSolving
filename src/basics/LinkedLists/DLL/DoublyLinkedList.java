@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import basics.LinkedLists.SLL.SLLNode;
-
 public class DoublyLinkedList implements DoublyLinkedList_interface {
 
 	int length;

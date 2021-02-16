@@ -52,6 +52,6 @@ public class Q04_MedianOfTwoSortedArrays {
 		if (l % 2 == 0)
 			return (double) (median + c[(l - 1) / 2]) / 2;
 		else
-			return (double) median;
+			return median;
 	}
 }
