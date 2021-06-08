@@ -2,7 +2,6 @@ package basics.bst;
 
 public class TreeInorderSuccessor {
 	public TreeNode inorderSuccessor(TreeNode root, int element) {
-
 		if (root == null) {
 			System.out.println("Tree is Empty.");
 			return null;
@@ -11,8 +10,8 @@ public class TreeInorderSuccessor {
 		while (root != null) {
 			if (root.getData() == element) {
 				if (root.getRight() != null) {// find min in RST
-					TreeFindMin treeFindMin=new TreeFindMin();
-					successorNode=treeFindMin.minNode(root.getRight());
+					TreeFindMin treeFindMin = new TreeFindMin();
+					successorNode = treeFindMin.minNode(root.getRight());
 				}
 				return successorNode;
 			} else if (root.getData() < element)

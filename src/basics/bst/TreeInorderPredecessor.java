@@ -1,9 +1,7 @@
 package basics.bst;
 
 public class TreeInorderPredecessor {
-
 	public TreeNode inorderPredecessor(TreeNode root, int element) throws InterruptedException {
-
 		if (root == null) {
 			System.out.println("Tree is Empty.");
 			return null;

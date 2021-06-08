@@ -10,12 +10,10 @@ public class SelectionSort {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int n = Integer.parseInt(st.nextToken());
-		
 		int arr[] = new int[n], i, j, min_index, temp;
 		st = new StringTokenizer(br.readLine());
 		for (i = 0; i < n; i++)
 			arr[i] = Integer.parseInt(st.nextToken());
-
 		printArray(arr);
 		for (i = 0; i < n - 1; i++) {
 			min_index = i;

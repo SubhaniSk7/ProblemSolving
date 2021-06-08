@@ -10,14 +10,11 @@ public class QuickSort {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int n = Integer.parseInt(st.nextToken());
-
 		int arr[] = new int[n], i;
 		st = new StringTokenizer(br.readLine());
 		for (i = 0; i < n; i++)
 			arr[i] = Integer.parseInt(st.nextToken());
-
 		printArray(arr);
-
 		quickSort(arr, 0, n - 1);
 		printArray(arr);
 	}
@@ -31,9 +28,7 @@ public class QuickSort {
 	}
 
 	public static int partition(int[] arr, int start, int end) {
-		int pivot = arr[end];
-		int i = start - 1;
-		int j, temp;
+		int pivot = arr[end], i = start - 1, j, temp;
 		for (j = start; j < end; j++) {
 			if (arr[j] <= pivot) {
 				i++;
@@ -49,8 +44,7 @@ public class QuickSort {
 	}
 
 	public static void printArray(int[] array) {
-		int i;
-		for (i = 0; i < array.length; i++)
+		for (int i = 0; i < array.length; i++)
 			System.out.print(array[i] + " ");
 		System.out.println();
 	}

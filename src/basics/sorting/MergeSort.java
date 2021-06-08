@@ -10,13 +10,11 @@ public class MergeSort {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int n = Integer.parseInt(st.nextToken());
-
 		int arr[] = new int[n], i;
 		st = new StringTokenizer(br.readLine());
 		for (i = 0; i < n; i++)
 			arr[i] = Integer.parseInt(st.nextToken());
 		printArray(arr);
-
 		mergeSort(arr, 0, n - 1);
 		printArray(arr);
 	}
@@ -65,7 +63,6 @@ public class MergeSort {
 			temp[k++] = arr[i++];
 		while (j <= end)
 			temp[k++] = arr[j++];
-
 		for (i = 0, j = start; i < temp.length; i++, j++)
 			arr[j] = temp[i];
 	}

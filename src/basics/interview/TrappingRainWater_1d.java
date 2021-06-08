@@ -22,7 +22,7 @@ public class TrappingRainWater_1d {
 	public static void sol(int n, int[] buildings) {
 		int water = 0;
 		for (int i = 0; i < n; ++i) {
-			int leftMax = -1, rightMax = -1, diff = -1;
+			int leftMax = -1, rightMax = -1;
 			for (int j = 0; j < i; ++j)
 				leftMax = Math.max(leftMax, buildings[j]);
 			for (int j = i + 1; j < n; ++j)

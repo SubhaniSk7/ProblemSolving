@@ -11,16 +11,16 @@ public class LCS_LongestPalindromicSubsequence {
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int n = Integer.parseInt(st.nextToken());// string x length
 		String x = br.readLine();
-		lcs(x, n);
+		lps_0(x, n);
+		lps_1(x, n);
 	}
 
-	public static void lcs(String x, int n) {
+	public static void lps_0(String x, int n) {// from LCS
 		int m = n;
 		String y = new StringBuilder(x).reverse().toString();
-
 		int[][] dp = new int[n + 1][m + 1];
-		for (int i = 1; i <= n; ++i) {
-			for (int j = 1; j <= m; ++j) {
+		for (int i = 0; i <= n; ++i) {
+			for (int j = 0; j <= m; ++j) {
 				if (i == 0 || j == 0)
 					dp[i][j] = 0;
 				else if (x.charAt(i - 1) == y.charAt(j - 1))
@@ -31,6 +31,27 @@ public class LCS_LongestPalindromicSubsequence {
 		}
 		print(dp, n, m);
 		System.out.println(dp[n][m]);
+	}
+
+	public static void lps_1(String x, int n) {
+		int m = n;
+		String y = new StringBuilder(x).toString();
+		int[][] dp = new int[n][m];
+		for (int i = 0; i < n; ++i)// length 1 = char itself
+			dp[i][i] = 1;
+
+		for (int i = 0; i < n; ++i) {
+			int k = 0;
+			for (int j = i + 1; j < n && k < n - i; ++j) {
+				if (x.charAt(k) == y.charAt(j))
+					dp[k][j] = 2 + dp[k + 1][j - 1];
+				else
+					dp[k][j] = Math.max(dp[k][j - 1], dp[k + 1][j]);
+				k++;
+			}
+		}
+		print(dp, n - 1, m - 1);
+		System.out.println(dp[0][m - 1]);
 	}
 
 	public static void print(int[][] dp, int n, int m) {
