@@ -66,13 +66,10 @@ public class FCTRL_Factorial_TrailingZeroes {
 	}
 
 	public static void trailingZeroes(int n) {
-		int i, count = 0;
-		int num = n;
+		int i, count = 0, num = n;
 		while (num > 0) {
-
 			if (num % 5 != 0)
 				num -= num % 5;
-
 			count += num / 5;
 			num /= 5;
 		}

@@ -199,9 +199,8 @@ public class SinglyLinkedList implements SinglyLinkedList_interface {
 			head = newNode;
 		} else {
 			SLLNode temp = head;
-			while (temp.getNext() != null) {
+			while (temp.getNext() != null)
 				temp = temp.getNext();
-			}
 			temp.setNext(newNode);
 		}
 		length++;

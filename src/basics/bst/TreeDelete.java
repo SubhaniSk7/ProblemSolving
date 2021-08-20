@@ -12,7 +12,7 @@ public class TreeDelete {
 			root.left = delete(root.getLeft(), element);
 		else if (element > root.getData())
 			root.right = delete(root.getRight(), element);
-		else {
+		else {// equals
 			if (root.getLeft() == null) // only right child
 				return root.getRight();
 			else if (root.getRight() == null)// only left child

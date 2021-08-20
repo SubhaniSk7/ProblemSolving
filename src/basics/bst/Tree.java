@@ -23,19 +23,26 @@ public class Tree {
 				System.out.println("isEmpty:" + tree.isEmpty());
 				break;
 			case 2:
-				TreeTraversals traverse = new TreeTraversals();
+				TreeTraversalsRecursive traverse = new TreeTraversalsRecursive();
+				TreeTraversalsIterative traverse_1 = new TreeTraversalsIterative();
 				System.out.println();
 				if (!tree.isEmpty()) {
 					System.out.println("InOrder:");
 					traverse.inOrder(root);
-
 					System.out.println();
+					traverse_1.inOrder(root);
+					System.out.println();
+
 					System.out.println("PreOrder:");
 					traverse.preOrder(root);
+					System.out.println();
+					traverse_1.preOrder(root);
 
 					System.out.println();
 					System.out.println("PostOrder:");
 					traverse.postOrder(root);
+					System.out.println();
+					traverse_1.postOrder(root);
 
 					System.out.println();
 					System.out.println("LevelOrder:");
@@ -49,7 +56,7 @@ public class Tree {
 //				int n = Integer.parseInt(br.readLine());
 				int n = 7;
 				int element;
-				int[] a = { 50, 30, 70, 20, 40, 60, 80 };
+				int[] a = { 5, 3, 7, 2, 4, 6, 8 };
 				for (int i = 0; i < n; i++) {
 					System.out.println("Enter element:");
 //					element = Integer.parseInt(br.readLine());

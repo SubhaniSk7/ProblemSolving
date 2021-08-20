@@ -23,8 +23,8 @@ public class TrappingRainWater_2d {
 	public static void sol(int m, int n, int[][] buildings) {
 		int[][] directions = new int[][] { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };// up,down, left, right
 
-		PriorityQueue<int[]> queue = new PriorityQueue<>((a, b) -> Integer.compare(a[2], b[2]));
-		// int[] ={row,column,height}
+		PriorityQueue<int[]> queue = new PriorityQueue<>((a, b) -> Integer.compare(a[2], b[2]));// int[] ={row,column,height}
+
 		boolean[][] visited = new boolean[m][n];
 		for (int i = 0; i < m; ++i)
 			for (int j = 0; j < n; ++j)

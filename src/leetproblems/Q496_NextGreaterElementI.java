@@ -24,7 +24,7 @@ public class Q496_NextGreaterElementI {
 			System.out.println(result[i]);
 	}
 
-	public static int[] nextGreaterElement(int[] nums1, int[] nums2) {
+	public static int[] nextGreaterElement(int[] nums1, int[] nums2) {// on right side of element
 		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
 		Stack<Integer> stack = new Stack<>();
 		for (int i = nums2.length - 1; i >= 0; --i) {

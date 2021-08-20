@@ -12,13 +12,10 @@ public class Q12_IntegerToRoman {
 	}
 
 	public static String roman(int num) {
-
 		int count = 0, digit;
 		String roman = "", temp = "";
-
 		String[] arr = { "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XX", "XXX", "XL", "L", "LX",
 				"LXX", "LXXX", "XC", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM", "M" };
-
 		while (num > 0) {
 			digit = num % 10;
 			if (count == 3)

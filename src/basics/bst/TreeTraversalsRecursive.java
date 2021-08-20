@@ -3,7 +3,7 @@ package basics.bst;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class TreeTraversals {
+public class TreeTraversalsRecursive {
 	public void preOrder(TreeNode root) {
 		if (root != null) {
 			System.out.print(root.getData() + " ");
