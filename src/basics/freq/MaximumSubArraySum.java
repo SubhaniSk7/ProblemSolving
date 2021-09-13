@@ -32,23 +32,34 @@ public class MaximumSubArraySum {
 	}
 
 	public static void solution_2(int n, int[] arr) {
-		int maxSum = 0;
+		int ans = 0;
 		for (int i = 0; i < n; ++i) {
-			int sum = 0;
+			int temp = 0;
 			for (int j = i; j < n; ++j) {
-				sum += arr[j];
-				maxSum = Math.max(maxSum, sum);
+				temp += arr[j];
+				ans = Math.max(ans, temp);
 			}
 		}
-		System.out.println(maxSum);
+		System.out.println(ans);
 	}
 
 	public static void solution_3(int n, int[] arr) {
-		int maxSum = 0, sum = 0;
+		int ans = 0, temp = 0;
 		for (int i = 0; i < n; ++i) {
-			sum = Math.max(arr[i], sum + arr[i]);
-			maxSum = Math.max(maxSum, sum);
+			temp = Math.max(arr[i], temp + arr[i]);
+			ans = Math.max(ans, temp);
 		}
-		System.out.println(maxSum);
+		System.out.println(ans);
+	}
+
+	public static void solution_4(int[] nums) {// with atleast one number
+		int ans = Integer.MIN_VALUE;
+		int a = 0;
+		for (int x : nums) {
+			a += x;
+			ans = Math.max(ans, a);
+			a = Math.max(a, 0);
+		}
+		System.out.println(ans);
 	}
 }

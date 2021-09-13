@@ -27,7 +27,7 @@ public class Anagrams {
 		for (int i = 0; i < n; ++i) {
 			char[] ch = A.get(i).toCharArray();
 			Arrays.parallelSort(ch);
-			String s = Arrays.toString(ch);
+			String s = String.valueOf(ch);
 			ArrayList<Integer> al = map.getOrDefault(s, new ArrayList<Integer>());
 			al.add(i + 1);
 			map.put(s, al);

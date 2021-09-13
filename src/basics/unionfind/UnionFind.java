@@ -11,7 +11,6 @@ public class UnionFind {
 	public static void main(String[] subhani) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine());// #elements
-		int[] arr = new int[n];
 		parent = new int[n];
 		size = new int[n];
 		PriorityQueue<Integer> pq = new PriorityQueue<Integer>();// nodes are from 0->n
