@@ -8,7 +8,6 @@ import java.util.Iterator;
 
 public class PrimeFactorization {
 	public static void main(String subhani[]) throws IOException, NumberFormatException {
-
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine());
 		primeFactors(n);

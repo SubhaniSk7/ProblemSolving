@@ -31,38 +31,28 @@ public class SpiralMatrix1 {
 		System.out.println(t + " " + b + " " + l + " " + r);
 		while (t <= b && l <= r) {
 			if (dir == 0) {// l to r
-				for (int i = l; i <= r; ++i) {
-//					System.out.println(A.get(t).get(i));
+				for (int i = l; i <= r; ++i)
 					result.add(A.get(t).get(i));
-				}
 				dir = 1;
 				t++;
 			} else if (dir == 1) {// t to b
-				for (int i = t; i <= b; ++i) {
-//					System.out.println(A.get(i).get(r));
+				for (int i = t; i <= b; ++i)
 					result.add(A.get(i).get(r));
-				}
 				dir = 2;
 				r--;
 			} else if (dir == 2) {// r to l
-				for (int i = r; i >= l; --i) {
-//					System.out.println(A.get(b).get(i));
+				for (int i = r; i >= l; --i)
 					result.add(A.get(b).get(i));
-				}
 				dir = 3;
 				b--;
 			} else {// b to t
-				for (int i = b; i >= t; --i) {
-//					System.out.println(A.get(i).get(l));
+				for (int i = b; i >= t; --i)
 					result.add(A.get(i).get(l));
-				}
 				dir = 0;
 				l++;
 			}
 		}
-
 		System.out.println(result.toString());
-		return null;
+		return result;
 	}
-
 }

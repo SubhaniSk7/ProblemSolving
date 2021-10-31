@@ -54,6 +54,18 @@ public class MaximumSubArraySum {
 
 	public static void solution_4(int[] nums) {// with atleast one number
 		int ans = Integer.MIN_VALUE;
+		for (int i = 0; i < nums.length; ++i) {
+			int temp = 0;
+			for (int j = i; j < nums.length; ++j) {
+				temp += nums[j];
+				ans = Math.max(ans, temp);
+			}
+		}
+		System.out.println(ans);
+	}
+
+	public static void solution_5(int[] nums) {// with atleast one number
+		int ans = Integer.MIN_VALUE;
 		int a = 0;
 		for (int x : nums) {
 			a += x;
@@ -61,5 +73,18 @@ public class MaximumSubArraySum {
 			a = Math.max(a, 0);
 		}
 		System.out.println(ans);
+	}
+
+	public static void solution_6(int[] nums) {// with atleast one number
+		int n = nums.length;
+		int[] pref = new int[n];
+		for (int i = 0; i < n; ++i)
+			pref[i] = nums[i] + (i == 0 ? 0 : pref[i - 1]);
+
+		int min_so_far = 0, ans = Integer.MIN_VALUE;
+		for (int i = 0; i < n; ++i) {
+			ans = Math.max(ans, pref[i] - min_so_far);
+			min_so_far = Math.min(min_so_far, pref[i]);
+		}
 	}
 }

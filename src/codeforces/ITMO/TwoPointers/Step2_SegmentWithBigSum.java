@@ -32,6 +32,7 @@ public class Step2_SegmentWithBigSum {
 			if (sum >= S)
 				ans = Math.min(ans, r - l + 1);
 		}
+
 		if (ans == Integer.MAX_VALUE)
 			System.out.println(-1);
 		else

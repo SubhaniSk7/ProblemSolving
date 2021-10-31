@@ -21,17 +21,16 @@ public class Q74_SearchA2DMatrix {
 	}
 
 	public static boolean searchMatrix(int[][] matrix, int target) {
-		boolean found = false;
 		int m = matrix.length, n = matrix[0].length, row = 0, col = n - 1;
 		while (row < m && col >= 0) {
 			int ele = matrix[row][col];
-			if (ele == target) {
+			if (ele == target)
 				return true;
-			} else if (target < ele) {
+			else if (target < ele)
 				col--;
-			} else
+			else
 				row++;
 		}
-		return found;
+		return false;
 	}
 }

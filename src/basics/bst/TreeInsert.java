@@ -3,23 +3,22 @@ package basics.bst;
 public class TreeInsert {
 	public TreeNode insert(TreeNode root, int data) {
 		TreeNode node = new TreeNode(data);
-		if (root == null) {
+		if (root == null)
 			root = node;
-		} else {
-			TreeNode rootPtr = root;// current node pointer
-			TreeNode temp;// temp Node to point prev
+		else {
+			TreeNode cur = root, prev;
 			while (true) {
-				temp = rootPtr;
-				if (data <= rootPtr.getData()) {// <=
-					rootPtr = rootPtr.getLeft();
-					if (rootPtr == null) {
-						temp.setLeft(node);
+				prev = cur;
+				if (data <= cur.val) {
+					cur = cur.left;
+					if (cur == null) {
+						prev.left = node;
 						break;
 					}
-				} else {// >
-					rootPtr = rootPtr.getRight();
-					if (rootPtr == null) {
-						temp.setRight(node);
+				} else {
+					cur = cur.right;
+					if (cur == null) {
+						prev.right = node;
 						break;
 					}
 				}

@@ -8,7 +8,7 @@ public class TreeTraversalsIterative {
 		Stack<TreeNode> s = new Stack<>();
 		while (cur != null || !s.isEmpty()) {
 			while (cur != null) {
-				System.out.print(cur.data + " ");
+				System.out.print(cur.val + " ");
 				if (cur.right != null)
 					s.push(cur.right);
 				cur = cur.left;
@@ -29,7 +29,7 @@ public class TreeTraversalsIterative {
 			}
 			if (!s.isEmpty())
 				cur = s.pop();
-			System.out.print(cur.data + " ");
+			System.out.print(cur.val + " ");
 			cur = cur.right;
 		}
 		System.out.println();
@@ -50,7 +50,7 @@ public class TreeTraversalsIterative {
 			if (!s.isEmpty() && s.peek() == cur)
 				cur = cur.right;
 			else
-				System.out.print(cur.data + " ");
+				System.out.print(cur.val + " ");
 		}
 		System.out.println();
 	}

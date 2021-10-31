@@ -29,6 +29,36 @@ public class Q05_LongestPalindromicSubString {
 		return result;
 	}
 
+	public static String lps_2(String s) {// consider each letter as center and expand left and right--> odd & even lengths
+		int n = s.length(), start = 0, len = 1;
+		String result = "";
+		for (int i = 0; i < n; ++i) {
+			// odd length
+			int l = i, r = i;
+			while (l >= 0 && r < n && s.charAt(l) == s.charAt(r)) {
+				if (r - l + 1 > len) {
+					len = r - l + 1;
+					start = l;
+				}
+				l--;
+				r++;
+			}
+			// even length
+			l = i;
+			r = i + 1;
+			while (l >= 0 && r < n && s.charAt(l) == s.charAt(r)) {
+				if (r - l + 1 > len) {
+					len = r - l + 1;
+					start = l;
+				}
+				l--;
+				r++;
+			}
+		}
+		result = s.substring(start, start + len);
+		return result;
+	}
+
 	public static String lps_1(String s) {
 		int n = s.length();
 		String ans = "";

@@ -8,17 +8,17 @@ public class TreeInorderSuccessor {
 		}
 		TreeNode successorNode = null;
 		while (root != null) {
-			if (root.getData() == element) {
-				if (root.getRight() != null) {// find min in RST
+			if (root.val == element) {
+				if (root.right != null) {// find min in RST
 					TreeFindMin treeFindMin = new TreeFindMin();
-					successorNode = treeFindMin.minNode(root.getRight());
+					successorNode = treeFindMin.minNode(root.right);
 				}
 				return successorNode;
-			} else if (root.getData() < element)
-				root = root.getRight();
+			} else if (root.val < element)
+				root = root.right;
 			else {
 				successorNode = root;
-				root = root.getLeft();
+				root = root.left;
 			}
 		}
 		return successorNode;

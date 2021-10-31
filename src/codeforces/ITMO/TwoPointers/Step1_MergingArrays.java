@@ -22,7 +22,6 @@ public class Step1_MergingArrays {
 	}
 
 	public static void merge(int n, int[] a, int m, int[] b) {
-
 		int[] c = new int[n + m];
 		int i = 0, j = 0, k = 0;
 		while (i < n || j < m) {

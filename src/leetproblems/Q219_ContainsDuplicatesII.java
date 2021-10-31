@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -21,37 +19,47 @@ public class Q219_ContainsDuplicatesII {
 		System.out.println(sol(nums, k));
 	}
 
+//	public static boolean sol(int[] nums, int k) {
+//		int n = nums.length;
+//		Map<Integer, HashSet<Integer>> map = new HashMap<Integer, HashSet<Integer>>();
+//		for (int i = 0; i < n; ++i) {
+//			if (map.containsKey(nums[i])) {
+//				HashSet<Integer> s = map.get(nums[i]);
+//				s.add(i);
+//				map.put(nums[i], s);
+//			} else {
+//				HashSet<Integer> s = new HashSet<Integer>();
+//				s.add(i);
+//				map.put(nums[i], s);
+//			}
+//		}
+//		Iterator itr = map.entrySet().iterator();
+//		while (itr.hasNext()) {
+//			Map.Entry<Integer, HashSet<Integer>> entry = (Map.Entry<Integer, HashSet<Integer>>) itr.next();
+//			HashSet<Integer> s = entry.getValue();
+//			if (s.size() > 1) {
+//				Iterator<Integer> itr1 = s.iterator();
+//				int ind1 = itr1.next();
+//				while (itr1.hasNext()) {
+//					int ind2 = itr1.next();
+//					if (Math.abs(ind1 - ind2) <= k)
+//						return true;
+//					ind1 = ind2;
+//				}
+//			}
+//		}
+//		return false;
+//	}
+
 	public static boolean sol(int[] nums, int k) {
 		int n = nums.length;
-		Map<Integer, HashSet<Integer>> map = new HashMap<Integer, HashSet<Integer>>();
+		Map<Integer, Integer> map = new HashMap<>();
 		for (int i = 0; i < n; ++i) {
-			if (map.containsKey(nums[i])) {
-				HashSet<Integer> s = map.get(nums[i]);
-				s.add(i);
-				map.put(nums[i], s);
-			} else {
-				HashSet<Integer> s = new HashSet<Integer>();
-				s.add(i);
-				map.put(nums[i], s);
-			}
+			if (map.containsKey(nums[i]) && i - map.get(nums[i]) <= k)
+				return true;
+			else
+				map.put(nums[i], i);
 		}
-		Iterator itr = map.entrySet().iterator();
-		while (itr.hasNext()) {
-			Map.Entry<Integer, HashSet<Integer>> entry = (Map.Entry<Integer, HashSet<Integer>>) itr.next();
-			HashSet<Integer> s = entry.getValue();
-//			System.out.println(s.toString());
-			if (s.size() > 1) {
-				Iterator<Integer> itr1 = s.iterator();
-				int ind1 = itr1.next();
-				while (itr1.hasNext()) {
-					int ind2 = itr1.next();
-					if (Math.abs(ind1 - ind2) <= k)
-						return true;
-					ind1 = ind2;
-				}
-			}
-		}
-
 		return false;
 	}
 }

@@ -1,0 +1,10 @@
+package leetproblems;
+
+public class Q1528_ShuffleString {
+	public String restoreString(String s, int[] indices) {
+		char[] ch = new char[indices.length];
+		for (int i = 0; i < indices.length; ++i)
+			ch[indices[i]] = s.charAt(i);
+		return String.valueOf(ch);
+	}
+}

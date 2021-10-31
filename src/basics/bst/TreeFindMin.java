@@ -6,9 +6,9 @@ public class TreeFindMin {
 			System.out.println("Tree is empty.");
 			return Integer.MIN_VALUE;
 		}
-		while (root.getLeft() != null)
-			root = root.getLeft();
-		return root.getData();
+		while (root.left != null)
+			root = root.left;
+		return root.val;
 	}
 
 	public TreeNode minNode(TreeNode root) {
@@ -16,8 +16,8 @@ public class TreeFindMin {
 			System.out.println("Tree is empty.");
 			return null;
 		}
-		while (root.getLeft() != null)
-			root = root.getLeft();
+		while (root.left != null)
+			root = root.left;
 		return root;
 	}
 }

@@ -9,8 +9,8 @@ public class CoinChangeMaxNumberOfWays_KSUnbounded {
 	public static void main(String subhani[]) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		int n = Integer.parseInt(st.nextToken());// #elements
-		int S = Integer.parseInt(st.nextToken());// totalSum
+		int n = Integer.parseInt(st.nextToken());// #coins
+		int S = Integer.parseInt(st.nextToken());// Money
 		int[] coins = new int[n];
 		st = new StringTokenizer(br.readLine());
 		for (int i = 0; i < n; ++i)

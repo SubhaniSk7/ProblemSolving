@@ -75,10 +75,8 @@ public class LowestCommonAncestor {
 
 	public static int lca(TreeNode A, int B, int C) {
 		ArrayList<Integer> bal = new ArrayList<>(), cal = new ArrayList<>();
-
 		if (!path(A, bal, B) || !path(A, cal, C))
 			return -1;
-
 		int i = 0;
 		for (i = 0; i < bal.size() && i < cal.size(); ++i) {
 			if (bal.get(i) != cal.get(i))

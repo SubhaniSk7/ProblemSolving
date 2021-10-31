@@ -2,16 +2,11 @@ package basics.bst;
 
 public class TreeHeight {
 	public int height(TreeNode node) {
-		if (node == null) {
+		if (node == null)
 			return 0;
-		} else {
-			int leftSubHeight = height(node.getLeft());
-			int rightSubHeight = height(node.getRight());
+		int l = height(node.left);
+		int r = height(node.right);
 
-			if (leftSubHeight > rightSubHeight)
-				return leftSubHeight + 1;// left subtree height + root
-			else
-				return rightSubHeight + 1;// right subtree height + root
-		}
+		return 1 + Math.max(l, r);
 	}
 }

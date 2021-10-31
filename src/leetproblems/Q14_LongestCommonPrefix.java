@@ -1,22 +1,8 @@
 package leetproblems;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
-
 public class Q14_LongestCommonPrefix {
-	public static void main(String subhani[]) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int n = Integer.parseInt(br.readLine());
-		String[] strs = new String[n];
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		for (int i = 0; i < n; ++i)
-			strs[i] = st.nextToken();
-		System.out.println(sol(strs));
-	}
 
-	public static String sol(String[] strs) {
+	public String sol(String[] strs) {
 		int n = strs.length;
 		String ans = "";
 		if (n == 0)
@@ -30,5 +16,15 @@ public class Q14_LongestCommonPrefix {
 			ans += strs[0].charAt(i);
 		}
 		return ans;
+	}
+
+	public String sol_1(String[] strs) {
+		int n = strs.length;
+		String prefix = strs[0];
+		for (int i = 1; i < n; ++i) {
+			while (strs[i].indexOf(prefix) != 0)
+				prefix = prefix.substring(0, prefix.length() - 1);
+		}
+		return prefix;
 	}
 }

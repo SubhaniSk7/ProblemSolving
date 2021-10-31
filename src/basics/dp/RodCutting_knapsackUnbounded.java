@@ -22,15 +22,15 @@ public class RodCutting_knapsackUnbounded {
 		cutting(lengths, prices, n, R);
 	}
 
-	public static void cutting(int[] lengths, int[] values, int n, int W) {
-		int[][] dp = new int[n + 1][W + 1];
+	public static void cutting(int[] lengths, int[] values, int n, int L) {
+		int[][] dp = new int[n + 1][L + 1];
 		for (int i = 0; i <= n; ++i)
 			dp[i][0] = 0;
-		for (int j = 0; j <= W; ++j)
+		for (int j = 0; j <= L; ++j)
 			dp[0][j] = 0;
 
 		for (int i = 1; i <= n; ++i) {
-			for (int j = 1; j <= W; ++j) {
+			for (int j = 1; j <= L; ++j) {
 				if (lengths[i - 1] <= j) {
 					int included = values[i - 1] + dp[i][j - lengths[i - 1]];
 					int excluded = dp[i - 1][j];
@@ -39,8 +39,8 @@ public class RodCutting_knapsackUnbounded {
 					dp[i][j] = dp[i - 1][j];
 			}
 		}
-		print(dp, n, W);
-		System.out.println(dp[n][W]);
+		print(dp, n, L);
+		System.out.println(dp[n][L]);
 	}
 
 	public static void print(int[][] dp, int rows, int columns) {

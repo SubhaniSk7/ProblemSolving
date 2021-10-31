@@ -27,5 +27,4 @@ public class JumpGameArray {
 		else
 			return 0;
 	}
-
 }

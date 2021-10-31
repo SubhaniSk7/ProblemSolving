@@ -3,15 +3,13 @@ package basics.dp;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
 
 public class LCS_LongestRepeatingSubsequence {
 	public static void main(String[] subhani) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		int n = Integer.parseInt(st.nextToken());// string x length
-		String x = br.readLine();
-		lrs(x, n);
+//		String x = br.readLine();
+		String x = "AABEBCDD";
+		lrs(x, x.length());
 	}
 
 	public static void lrs(String x, int n) {
@@ -28,14 +26,26 @@ public class LCS_LongestRepeatingSubsequence {
 					dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
 			}
 		}
-		print(dp, n, m);
+		print(x, dp, n, m);
 		System.out.println(dp[n][m]);
 	}
 
-	public static void print(int[][] dp, int n, int m) {
+	public static void print(String x, int[][] dp, int n, int m) {
 		for (int i = 0; i <= n; ++i) {
-			for (int j = 0; j <= m; ++j)
+			if (i != 0)
+				System.out.print(x.charAt(i - 1) + " ");
+			else
+				System.out.print("    ");
+		}
+		System.out.println();
+		for (int i = 0; i <= n; ++i) {
+			if (i != 0)
+				System.out.print(x.charAt(i - 1) + " ");
+			else
+				System.out.print("  ");
+			for (int j = 0; j <= m; ++j) {
 				System.out.print(dp[i][j] + " ");
+			}
 			System.out.println();
 		}
 	}
@@ -43,4 +53,4 @@ public class LCS_LongestRepeatingSubsequence {
 //i/p: 
 //8
 //AABEBCDD
-//o/p: 3 --> ABD is lcs and there is another ABC as lcs
+//o/p: 3 --> ABD is lcs and there is another ABD as lcs

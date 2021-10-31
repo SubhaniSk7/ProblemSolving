@@ -21,10 +21,11 @@ public class SubsetWithSum_Bitwise {
 	public static void sol(int n, int[] a, int S) {
 		// check every possibility of elements(MASK): include/Not include --> n elements
 		// i.e., (1<<n) = 2^n possibilities (power set)
+
 		for (int mask = 0; mask < (1 << n); mask++) {
 			long sum_of_this_subset = 0;
 			for (int i = 0; i < n; i++) {// loop the array
-				if ((mask & (1 << i)) != 0) {// i-th bit set or not i.e., i-th element include/not
+				if ((mask & (1 << i)) != 0) {// i-th bit set or not = i-th element include/not
 					sum_of_this_subset += a[i];
 				}
 			}

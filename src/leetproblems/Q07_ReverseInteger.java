@@ -17,33 +17,20 @@ public class Q07_ReverseInteger {
 
 	public static int reverseInt_1(int n) {
 		boolean neg = false;
-		int count = 0;
 		if (n < 0) {
 			neg = true;
 			n = -1 * n;
 		}
-		int result = 0;
-//			2147483647-->Integer.MAX_Value
-//			-2147483648-->Integer.MIN_Value
+		long result = 0;
 		while (n > 0) {
-			count++;
-
-			if (count == 10) {
-				int digit = result / 100000000;
-				if (digit > 2) {
-					return 0;
-				} else if (neg && digit == 2 && ((result % 100000000) * 10 + digit) > 147483648) { // for
-																									// -ve
-					return 0;
-				} else if (!neg && digit == 2 && ((result % 100000000) * 10 + digit) > 147483647) { // for +ve
-					return 0;
-				}
-			}
 			result = result * 10 + n % 10;
 			n /= 10;
 		}
-
-		return neg ? (-1 * result) : result;
+		if (result > Integer.MAX_VALUE)
+			return 0;
+		if (neg && -1 * result < Integer.MIN_VALUE)
+			return 0;
+		return neg ? (-1 * (int) result) : (int) result;
 	}
 
 	// original solution from Leetcode

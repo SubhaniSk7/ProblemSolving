@@ -6,9 +6,9 @@ public class TreeFindMax {
 			System.out.println("Tree is empty.");
 			return Integer.MAX_VALUE;
 		}
-		while (root.getRight() != null)
-			root = root.getRight();
-		return root.getData();
+		while (root.right != null)
+			root = root.right;
+		return root.val;
 	}
 
 	public TreeNode maxNode(TreeNode root) {
@@ -16,8 +16,8 @@ public class TreeFindMax {
 			System.out.println("Tree is empty.");
 			return root;
 		}
-		while (root.getRight() != null)
-			root = root.getRight();
+		while (root.right != null)
+			root = root.right;
 		return root;
 	}
 }

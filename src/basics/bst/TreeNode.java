@@ -1,37 +1,20 @@
 package basics.bst;
 
 public class TreeNode {
-	int data;
-	TreeNode left;
-	TreeNode right;
+	public int val;
+	public TreeNode left;
+	public TreeNode right;
 
-	public TreeNode(int data) {
-		this.data = data;
-		this.left = null;
-		this.right = null;
+	public TreeNode() {
 	}
 
-	public int getData() {
-		return data;
+	public TreeNode(int val) {
+		this.val = val;
 	}
 
-	public void setData(int data) {
-		this.data = data;
-	}
-
-	public TreeNode getLeft() {
-		return left;
-	}
-
-	public void setLeft(TreeNode left) {
+	public TreeNode(int val, TreeNode left, TreeNode right) {
+		this.val = val;
 		this.left = left;
-	}
-
-	public TreeNode getRight() {
-		return right;
-	}
-
-	public void setRight(TreeNode right) {
 		this.right = right;
 	}
 }

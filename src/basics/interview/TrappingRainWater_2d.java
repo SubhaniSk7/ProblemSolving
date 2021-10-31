@@ -23,28 +23,36 @@ public class TrappingRainWater_2d {
 	public static void sol(int m, int n, int[][] buildings) {
 		int[][] directions = new int[][] { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };// up,down, left, right
 
-		PriorityQueue<int[]> queue = new PriorityQueue<>((a, b) -> Integer.compare(a[2], b[2]));// int[] ={row,column,height}
-
+		PriorityQueue<int[]> queue = new PriorityQueue<>((a, b) -> Integer.compare(a[2], b[2]));// int[]
+																								// ={row,column,height}
 		boolean[][] visited = new boolean[m][n];
-		for (int i = 0; i < m; ++i)
-			for (int j = 0; j < n; ++j)
+		for (int i = 0; i < m; ++i) {
+			for (int j = 0; j < n; ++j) {
 				if (i == 0 || i == m - 1 || j == 0 || j == n - 1) {
 					queue.offer(new int[] { i, j, buildings[i][j] });
 					visited[i][j] = true;
 				}
-		int water = 0;
+			}
+		}
+		int water = 0, maxHeight = Integer.MIN_VALUE;
 		while (!queue.isEmpty()) {
 			int[] current = queue.poll();
+			maxHeight = Math.max(maxHeight, current[2]);
 			for (int[] dir : directions) {
 				int i = current[0] + dir[0], j = current[1] + dir[1];
 				if (i >= 0 && i < m && j >= 0 && j < n && !visited[i][j]) {
 					visited[i][j] = true;
 					queue.offer(new int[] { i, j, buildings[i][j] });
-					if (buildings[i][j] < current[2])
-						water += current[2] - buildings[i][j];
+					if (buildings[i][j] < maxHeight) {
+						water += maxHeight - buildings[i][j];
+					}
 				}
 			}
 		}
 		System.out.println(water);
 	}
 }
+//3 6
+//1 4 3 1 3 2
+//3 2 1 3 2 4
+//2 3 3 2 3 1

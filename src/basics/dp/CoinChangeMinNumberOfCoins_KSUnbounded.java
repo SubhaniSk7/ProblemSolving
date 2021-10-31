@@ -11,8 +11,8 @@ public class CoinChangeMinNumberOfCoins_KSUnbounded {
 	public static void main(String subhani[]) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		int n = Integer.parseInt(st.nextToken());// #elements
-		int S = Integer.parseInt(st.nextToken());// totalSum
+		int n = Integer.parseInt(st.nextToken());// #coins
+		int S = Integer.parseInt(st.nextToken());// Money
 		int[] coins = new int[n];
 		st = new StringTokenizer(br.readLine());
 		for (int i = 0; i < n; ++i)
@@ -25,7 +25,7 @@ public class CoinChangeMinNumberOfCoins_KSUnbounded {
 		for (int i = 0; i <= n; ++i)
 			dp[i][0] = 0;
 		for (int j = 0; j <= S; ++j)
-			dp[0][j] = Integer.MAX_VALUE - 1;
+			dp[0][j] = Integer.MAX_VALUE - 1;// instead we can take S+1;
 		for (int i = 1; i <= n; ++i) {
 			for (int j = 1; j <= S; ++j) {
 				int excluded = dp[i - 1][j];

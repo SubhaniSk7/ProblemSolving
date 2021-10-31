@@ -1,8 +1,10 @@
 package basics.graphs;
 
 import java.io.BufferedReader;
+import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -12,11 +14,21 @@ import java.util.Set;
 import java.util.StringTokenizer;
 
 public class BFS {
+	public static PrintStream out;
+	public static BufferedReader br;
+	public static GraphUtils utils = new GraphUtils();
+
 	public static int n, e;
 	public static ArrayList<Set<Integer>> vertices;
 
-	public static void main(String[] subhani) throws IOException, NumberFormatException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	public static void read() throws IOException {
+		BufferedReader br = new BufferedReader(
+				new FileReader("F:\\Git Space\\CompetitiveCoding\\src\\basics\\graphs\\input.txt"));
+		boolean append = false, autoFlush = true;
+		out = new PrintStream(
+				new FileOutputStream("F:\\Git Space\\CompetitiveCoding\\src\\basics\\graphs\\output.txt", append),
+				autoFlush);
+
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		n = Integer.parseInt(st.nextToken());
 		e = Integer.parseInt(st.nextToken());
@@ -31,15 +43,12 @@ public class BFS {
 			vertices.get(source).add(destination);
 			vertices.get(destination).add(source);
 		}
-		printGraph();
-		bfs(2);
 	}
 
-	public static void printGraph() {
-		Iterator<Set<Integer>> graph = vertices.iterator();
-		while (graph.hasNext()) {
-			System.out.println(graph.next().toString());
-		}
+	public static void main(String[] subhani) throws IOException, NumberFormatException {
+		read();
+		utils.printGraph(vertices, out);
+		bfs(0);
 	}
 
 	public static void bfs(int source) {
@@ -49,7 +58,7 @@ public class BFS {
 		visited[source] = true;
 		while (!queue.isEmpty()) {
 			source = queue.poll();
-			System.out.println(source);
+			out.print(source + " ");
 			Iterator<Integer> itr = vertices.get(source).iterator();
 			while (itr.hasNext()) {
 				int neighbour = itr.next();

@@ -3,6 +3,8 @@ package leetproblems;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.StringTokenizer;
 
 public class Q01_TwoSum {
@@ -15,32 +17,37 @@ public class Q01_TwoSum {
 		st = new StringTokenizer(br.readLine());
 		for (i = 0; i < n; i++)
 			arr[i] = Integer.parseInt(st.nextToken());
-		int[] result;
-		result = sumIndices(arr, target);
-		printArray(result);
+		int[] result = new Q01_TwoSum().twoSum(arr, target);
+		System.out.println(Arrays.toString(result));
 	}
 
-	public static int[] sumIndices(int[] arr, int target) {
-		int n = arr.length, i, max = Integer.MIN_VALUE;
-		int[] result = new int[2];
-		for (i = 0; i < n - 1; i++) {
-			boolean done = false;
-			for (int j = i + 1; j < n; j++)
-				if (arr[i] + arr[j] == target) {
-					result[0] = i;
-					result[1] = j;
-					done = true;
-					break;
-				}
-			if (done)
-				break;
+//	public static int[] sumIndices(int[] arr, int target) {
+//		int n = arr.length, i;
+//		int[] result = new int[2];
+//		for (i = 0; i < n - 1; i++) {
+//			boolean done = false;
+//			for (int j = i + 1; j < n; j++)
+//				if (arr[i] + arr[j] == target) {
+//					result[0] = i;
+//					result[1] = j;
+//					done = true;
+//					break;
+//				}
+//			if (done)
+//				break;
+//		}
+//		return result;
+//	}
+
+	public int[] twoSum(int[] arr, int target) {
+		int n = arr.length;
+		HashMap<Integer, Integer> map = new HashMap<>();
+		for (int i = 0; i < n; i++) {
+			int need = target - arr[i];
+			if (map.containsKey(need))
+				return new int[] { i, map.get(need) };
+			map.put(arr[i], i);
 		}
-		return result;
-	}
-
-	public static void printArray(int[] arr) {
-		for (int i = 0; i < arr.length; i++)
-			System.out.print(arr[i] + " ");
-		System.out.println();
+		return new int[] {};
 	}
 }

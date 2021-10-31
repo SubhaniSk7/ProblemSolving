@@ -99,7 +99,7 @@ public class Tree {
 				element = Integer.parseInt(br.readLine());
 				TreeNode predecessor = treeInorderPredecessor.inorderPredecessor(root, element);
 				if (predecessor != null)
-					System.out.println("Tree Inoder Predecessor:" + predecessor.getData());
+					System.out.println("Tree Inoder Predecessor:" + predecessor.val);
 				else
 					System.out.println("No Inorder Predecessor.");
 				break;
@@ -110,7 +110,7 @@ public class Tree {
 				element = Integer.parseInt(br.readLine());
 				TreeNode successor = treeInorderSuccessor.inorderSuccessor(root, element);
 				if (successor != null)
-					System.out.println("Tree Inoder Successor:" + successor.getData());
+					System.out.println("Tree Inoder Successor:" + successor.val);
 				else
 					System.out.println("No Inorder Successor.");
 

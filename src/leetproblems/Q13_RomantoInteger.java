@@ -59,7 +59,6 @@ public class Q13_RomantoInteger {
 				} else
 					result += 1000;
 			}
-//			System.out.println(result);
 		}
 		return result;
 	}

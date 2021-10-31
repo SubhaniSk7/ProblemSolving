@@ -4,13 +4,13 @@ public class TreeSearch {
 	public boolean search(TreeNode root, int element) {
 		boolean found = false;
 		while (root != null && found == false) {
-			if (element == root.getData()) {
+			if (element == root.val) {
 				found = true;
 				break;
-			} else if (element < root.getData())
-				root = root.getLeft();
+			} else if (element < root.val)
+				root = root.left;
 			else // element > root.getData()
-				root = root.getRight();
+				root = root.right;
 		}
 		return found;
 	}
@@ -18,13 +18,13 @@ public class TreeSearch {
 	public TreeNode searchNode(TreeNode root, int element) {
 		boolean found = false;
 		while (root != null && found == false) {
-			if (element == root.getData()) {
+			if (element == root.val) {
 				found = true;
 				break;
-			} else if (element < root.getData())
-				root = root.getLeft();
+			} else if (element < root.val)
+				root = root.left;
 			else // element > root.getData()
-				root = root.getRight();
+				root = root.right;
 		}
 		if (found)
 			return root;

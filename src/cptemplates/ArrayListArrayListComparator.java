@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import cptemplates.utils.Pair;
+
 public class ArrayListArrayListComparator {
 
 	public static void main(String[] subhani) throws IOException, NumberFormatException {
@@ -46,5 +48,49 @@ public class ArrayListArrayListComparator {
 			}
 		});
 		System.out.println(result.toString());
+	}
+
+	public void comp_1() {
+		ArrayList<Pair> al = new ArrayList<>();
+		Collections.sort(al, new Comparator<Pair>() {
+			@Override
+			public int compare(Pair o1, Pair o2) {
+				Integer a = o1.z;
+				Integer b = o2.z;
+				return a.compareTo(b);
+			}
+		});
+		System.out.println(al.toString());
+	}
+
+	public void comp_2() {
+		ArrayList<PairCell> al = new ArrayList<>();
+
+		al.add(new PairCell(1, 2, 3));
+		al.add(new PairCell(-1, 2, 3));
+		al.add(new PairCell(2, 2, 3));
+		al.add(new PairCell(0, 2, 3));
+		Collections.sort(al);
+		System.out.println(al);
+	}
+}
+
+class PairCell implements Comparable<PairCell> {
+	int distance, r, c;
+
+	PairCell(int d, int x, int y) {
+		distance = d;
+		r = x;
+		c = y;
+	}
+
+	@Override
+	public String toString() {
+		return "[" + distance + " " + r + " " + c + "]";
+	}
+
+	@Override
+	public int compareTo(PairCell o) {
+		return distance - o.distance;
 	}
 }

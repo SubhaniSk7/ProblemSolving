@@ -3,8 +3,8 @@ package leetproblems;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.StringTokenizer;
 
 public class Q217_ContainsDuplicate {
@@ -16,16 +16,27 @@ public class Q217_ContainsDuplicate {
 		st = new StringTokenizer(br.readLine());
 		for (int i = 0; i < n; ++i)
 			nums[i] = Integer.parseInt(st.nextToken());
-		System.out.println(sol(nums));
+		Q217_ContainsDuplicate obj = new Q217_ContainsDuplicate();
+		System.out.println(obj.containsDuplicate(nums));
 	}
 
-	public static boolean sol(int[] nums) {
+	public boolean containsDuplicate(int[] nums) {
 		int n = nums.length;
-		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-		for (int i = 0; i < n; ++i) {
-			map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
-			if (map.get(nums[i]) > 1)
+		Arrays.sort(nums);
+		for (int i = 0; i < n - 1; ++i) {
+			if (nums[i] == nums[i + 1])
 				return true;
+		}
+		return false;
+	}
+
+	public boolean containsDuplicate_1(int[] nums) {
+		int n = nums.length;
+		HashSet<Integer> set = new HashSet<>();
+		for (int i = 0; i < n; ++i) {
+			if (set.contains(nums[i]))
+				return true;
+			set.add(nums[i]);
 		}
 		return false;
 	}

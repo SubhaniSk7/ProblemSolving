@@ -8,17 +8,17 @@ public class TreeInorderPredecessor {
 		}
 		TreeNode predecessorNode = null;
 		while (root != null) {
-			if (root.getData() == element) {
-				if (root.getLeft() != null) {// find max in LST
+			if (root.val == element) {
+				if (root.left != null) {// find max in LST
 					TreeFindMax treeFindMax = new TreeFindMax();
-					predecessorNode = treeFindMax.maxNode(root.getLeft());
+					predecessorNode = treeFindMax.maxNode(root.left);
 				}
 				return predecessorNode;
-			} else if (root.getData() < element) {
+			} else if (root.val < element) {
 				predecessorNode = root;
-				root = root.getRight();
+				root = root.right;
 			} else
-				root = root.getLeft();
+				root = root.left;
 		}
 		return predecessorNode;
 	}

@@ -20,15 +20,15 @@ public class MCM_MatrixChainMultiplication {
 //		int cost = mcm_recursive(matrices, 1, n - 1);
 //		System.out.println(cost);
 
-		operations = new int[n][n];
-		for (int i = 0; i < n; ++i)
-			for (int j = 0; j < n; ++j)
-				operations[i][j] = -1;
-		int res = mcm_bup(matrices, 1, n - 1);
-		print(operations, n);
-		System.out.println(res);
+//		operations = new int[n][n];
+//		for (int i = 0; i < n; ++i)
+//			for (int j = 0; j < n; ++j)
+//				operations[i][j] = -1;
+//		int res = mcm_bup(matrices, 1, n - 1);
+//		print(operations, n);
+//		System.out.println(res);
 
-//		mcm_tdp(matrices, n);
+		mcm_tdp(matrices, n);
 	}
 
 	public static int mcm_recursive(int[] matrices, int i, int j) {
@@ -62,14 +62,14 @@ public class MCM_MatrixChainMultiplication {
 		for (int i = 0; i < n; ++i)
 			dp[i][i] = 0;
 
-		for (int chain = 2; chain < n; chain++) {
-			for (int i = 1; i < n - chain + 1; ++i) {
-				int j = i + chain - 1;
+		for (int len = 2; len < n; len++) {
+			for (int i = 1; i < n - len + 1; ++i) {
+				int j = i + len - 1;
 				if (j == n)
 					continue;
 				dp[i][j] = Integer.MAX_VALUE;
 				for (int k = i; k < j; ++k) {
-					System.out.println(chain + " " + i + " " + j + " " + k);
+					System.out.println(len + " " + i + " " + j + " " + k);
 					dp[i][j] = Math.min(dp[i][j],
 							dp[i][k] + dp[k + 1][j] + matrices[i - 1] * matrices[k] * matrices[j]);
 				}

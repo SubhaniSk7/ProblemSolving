@@ -14,42 +14,13 @@ public class Q15_Three_3Sum {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int n = Integer.parseInt(st.nextToken());
-
 		int[] nums = new int[n];
 		st = new StringTokenizer(br.readLine());
 		for (int i = 0; i < n; i++)
 			nums[i] = Integer.parseInt(st.nextToken());
 		printArray(nums);
-
 		threeSum(nums);
 	}
-
-	// TLE
-//	public static List<List<Integer>> threeSum(int[] nums) {
-//		Arrays.sort(nums);
-//		HashSet<List<Integer>> result = new HashSet<List<Integer>>();
-//		List<Integer> l;
-//		int i, j, k;
-//		for (i = 0; i < nums.length - 2; i++) {
-//			for (j = i + 1; j < nums.length - 1; j++) {
-//				for (k = j + 1; k < nums.length; k++) {
-//					if (nums[i] + nums[j] + nums[k] == 0) {
-//						l = new ArrayList<Integer>();
-//						l.add(nums[i]);
-//						l.add(nums[j]);
-//						l.add(nums[k]);
-//						result.add(l);
-//					}
-//				}
-//			}
-//		}
-//		List<List<Integer>> ans = new ArrayList<>(result);
-////		Iterator<List<Integer>> itr = ans.iterator();
-////		while (itr.hasNext())
-////			System.out.println(itr.next());
-//
-//		return ans;
-//	}
 
 	public static List<List<Integer>> threeSum(int[] nums) {
 		Arrays.sort(nums);
@@ -76,9 +47,6 @@ public class Q15_Three_3Sum {
 			}
 		}
 		List<List<Integer>> ans = new ArrayList<>(result);
-//		Iterator<List<Integer>> itr = ans.iterator();
-//		while (itr.hasNext())
-//			System.out.println(itr.next());
 		return ans;
 	}
 

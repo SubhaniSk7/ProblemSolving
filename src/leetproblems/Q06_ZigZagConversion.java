@@ -21,7 +21,6 @@ public class Q06_ZigZagConversion {
 		for (i = 0; i < numRows; i++)
 			rowStrings[i] = "";
 		for (i = 0, k = 0; i < numRows && k < s.length(); k++) {
-//			System.out.println(i);
 			rowStrings[i] += s.charAt(k);
 			if (up) {
 				if (i == 0) {
@@ -35,22 +34,12 @@ public class Q06_ZigZagConversion {
 					up = true;
 					if (i != 0)
 						i--;
-
 				} else
 					i++;
 			}
-//			printArray(rowStrings);
 		}
-
 		for (i = 0; i < numRows; i++)
 			result += rowStrings[i];
-
 		return result;
-	}
-
-	public static void printArray(String[] arr) {
-		for (int i = 0; i < arr.length; i++)
-			System.out.println(arr[i] + " ");
-		System.out.println("----------------------");
 	}
 }

@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 
 public class TrieDS {
 	static class TrieNode {
-		boolean isEnd = false;
+		boolean isEnd;
 		TrieNode[] children = new TrieNode[26];// Alphabets size = 26
 
 		TrieNode() {
@@ -69,6 +69,6 @@ public class TrieDS {
 
 	public static void printTrie() {
 		TrieNode current = root;
-
+		// ToDo
 	}
 }

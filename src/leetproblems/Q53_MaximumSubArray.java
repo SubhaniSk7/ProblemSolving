@@ -14,17 +14,36 @@ public class Q53_MaximumSubArray {
 		st = new StringTokenizer(br.readLine());
 		for (int i = 0; i < n; ++i)
 			nums[i] = Integer.parseInt(st.nextToken());
-		System.out.println(maxSubArray(nums));
+		System.out.println(maxSubArray_2(nums));
 	}
 
-	public static int maxSubArray(int[] nums) {
-		int n = nums.length, ans = Integer.MIN_VALUE;
-		for (int i = 0; i < n; ++i) {
-			int sum = 0;
-			for (int j = i; j < n; ++j) {
-				sum += nums[j];
-				ans = Math.max(ans, sum);
-			}
+//	public static int maxSubArray(int[] nums) {
+//		int n = nums.length, ans = Integer.MIN_VALUE;
+//		for (int i = 0; i < n; ++i) {
+//			int sum = 0;
+//			for (int j = i; j < n; ++j) {
+//				sum += nums[j];
+//				ans = Math.max(ans, sum);
+//			}
+//		}
+//		return ans;
+//	}
+//
+//	public static int maxSubArray_1(int[] nums) {
+//		int ans = Integer.MIN_VALUE, temp = -100000;
+//		for (int i = 0; i < nums.length; ++i) {
+//			temp = Math.max(temp + nums[i], nums[i]);
+//			ans = Math.max(ans, temp);
+//		}
+//		return ans;
+//	}
+
+	public static int maxSubArray_2(int[] nums) {
+		int ans = Integer.MIN_VALUE, temp = 0;
+		for (int x : nums) {
+			temp += x;
+			ans = Math.max(ans, temp);
+			temp = Math.max(temp, 0);
 		}
 		return ans;
 	}

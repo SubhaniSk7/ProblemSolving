@@ -7,8 +7,9 @@ import java.io.InputStreamReader;
 public class LCS_LongestPalindromicSubstring {
 	public static void main(String[] subhani) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String s = br.readLine();
-		System.out.println(lps_0(s));
+//		String s = br.readLine();
+		String s = "geeks";
+//		System.out.println(lps_0(s));
 		System.out.println(lps_1(s));
 	}
 
@@ -49,7 +50,7 @@ public class LCS_LongestPalindromicSubstring {
 			}
 		}
 		ans = s.substring(start, start + maxLength);
-//		print(s, dp, n, n);
+		print(s, dp, n, n);
 		return ans;
 	}
 

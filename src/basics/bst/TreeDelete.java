@@ -8,19 +8,19 @@ public class TreeDelete {
 			return root;
 		}
 
-		if (element < root.getData())
-			root.left = delete(root.getLeft(), element);
-		else if (element > root.getData())
-			root.right = delete(root.getRight(), element);
+		if (element < root.val)
+			root.left = delete(root.left, element);
+		else if (element > root.val)
+			root.right = delete(root.right, element);
 		else {// equals
-			if (root.getLeft() == null) // only right child
-				return root.getRight();
-			else if (root.getRight() == null)// only left child
-				return root.getLeft();
+			if (root.left == null) // only right child
+				return root.right;
+			else if (root.right == null)// only left child
+				return root.left;
 			else {// have two children:left and right
 				TreeInorderSuccessor inorderSuccessor = new TreeInorderSuccessor();
-				root.data = inorderSuccessor.inorderSuccessor(root, root.getData()).data;
-				root.right = delete(root.right, root.data);
+				root.val = inorderSuccessor.inorderSuccessor(root, root.val).val;
+				root.right = delete(root.right, root.val);
 			}
 		}
 		return root;

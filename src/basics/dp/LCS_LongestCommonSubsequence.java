@@ -40,7 +40,6 @@ public class LCS_LongestCommonSubsequence {
 	}
 
 	public static Set<String> printAllSequences(String x, String y, int n, int m, int[][] dp) {
-		System.out.println("\n" + n + "---------" + m);
 		Set<String> seq = new HashSet<>();
 		if (m == 0 || n == 0) {
 			seq.add("");
@@ -48,20 +47,14 @@ public class LCS_LongestCommonSubsequence {
 		}
 		if (x.charAt(n - 1) == y.charAt(m - 1)) {
 			Set<String> s = printAllSequences(x, y, n - 1, m - 1, dp);
-			System.out.println((n - 1) + "==" + (m - 1) + " " + s.toString());
 			for (String str : s)
 				seq.add(str + x.charAt(n - 1));
-			System.out.println(seq.toString());
 		} else {
-			if (dp[n - 1][m] >= dp[n][m - 1]) {
+			if (dp[n - 1][m] >= dp[n][m - 1])
 				seq = printAllSequences(x, y, n - 1, m, dp);
-				System.out.println((n - 1) + "!=" + (m) + " " + seq.toString());
-			}
 			if (dp[n - 1][m] <= dp[n][m - 1]) {
 				Set<String> s = printAllSequences(x, y, n, m - 1, dp);
-				System.out.println((n) + "!=" + (m - 1) + s.toString());
 				seq.addAll(s);
-				System.out.println(seq.toString());
 			}
 		}
 		return seq;
