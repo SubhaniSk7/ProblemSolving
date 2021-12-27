@@ -34,7 +34,7 @@ public class SUBINC_CountSubArrays {
 //	}
 	public static void solve(int n, int[] nums) {
 		long result = 1;
-		long[] dp = new long[n + 1];
+		long[] dp = new long[n];
 		Arrays.fill(dp, 1);
 		for (int i = 1; i < n; i++) {
 			if (nums[i - 1] <= nums[i])

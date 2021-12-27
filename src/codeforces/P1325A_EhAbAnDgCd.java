@@ -24,7 +24,6 @@ public class P1325A_EhAbAnDgCd {
 			return b;
 		if (b == 0)
 			return a;
-
 		if (a > b)
 			return gcd(b, a % b);
 		return gcd(a, b % a);

@@ -1,6 +1,6 @@
 package leetproblems;
 
-public class Q121_BestTimeToBuyAndSellStock {
+public class Q121_BestTimeToBuyAndSellStock {// One Transaction
 	public int maxProfit(int[] prices) {
 		int profit = 0, min = Integer.MAX_VALUE;
 		for (int x : prices) {

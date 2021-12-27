@@ -22,12 +22,12 @@ public class HeapSort {
 	}
 
 	public static void heapSort_descending(int[] arr) {
-		int i, n = arr.length;
-		for (i = n / 2 - 1; i >= 0; i--)
+		int n = arr.length;
+		for (int i = n / 2 - 1; i >= 0; i--)
 			maxHeapify(arr, i, n);
 		System.out.println("-------------After maxHeapify");
 		printArray(arr);
-		for (i = n - 1; i >= 0; i--) {
+		for (int i = n - 1; i >= 0; i--) {
 			int temp = arr[0];
 			arr[0] = arr[i];
 			arr[i] = temp;
@@ -39,11 +39,11 @@ public class HeapSort {
 	}
 
 	public static void heapSort_ascending(int[] arr) {
-		int i, n = arr.length;
-		for (i = n / 2 - 1; i >= 0; i--)
+		int n = arr.length;
+		for (int i = n / 2 - 1; i >= 0; i--)
 			minHeapify(arr, i, n);
 		printArray(arr);
-		for (i = n - 1; i >= 0; i--) {
+		for (int i = n - 1; i >= 0; i--) {
 			int temp = arr[0];
 			arr[0] = arr[i];
 			arr[i] = temp;

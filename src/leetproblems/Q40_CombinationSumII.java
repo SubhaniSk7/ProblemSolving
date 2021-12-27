@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Q40_CombinationSumII {
+public class Q40_CombinationSumII {// Order doesn't matters
 	List<ArrayList<Integer>> result = new ArrayList<>();
 
-	public List<ArrayList<Integer>> combinationSum2(int[] candidates, int target) {
+	public List<ArrayList<Integer>> combinationSum2(int[] candidates, int target) {// use element only once
 		Arrays.sort(candidates);
 		traverse(candidates, 0, target, new ArrayList<Integer>());
 		return result;

@@ -100,4 +100,38 @@ public class Q139_WordBreak {
 		}
 		return dp[0];
 	}
+
+//	-------------------------------------------------------------------
+//	public boolean wordBreak(String s, List<String> wordDict) {
+//		HashMap<String, Boolean> map = new HashMap<>();
+//		for (String t : wordDict)
+//			map.put(t, true);
+//		int n = s.length();
+//		boolean[][] dp = new boolean[n][n];
+//		for (int i = 0; i < n; ++i)
+//			Arrays.fill(dp[i], false);
+//		for (int i = 0; i < n; ++i) {
+//			String t = "" + s.charAt(i);
+//			if (map.getOrDefault(t, false))
+//				dp[i][i] = true;
+//		}
+//
+//		for (int len = 2; len <= n; ++len) {
+//			for (int i = 0; i < n - len + 1; ++i) {
+//				int j = i + len - 1;
+//				String t = s.substring(i, j + 1);
+//				if (map.getOrDefault(t, false))
+//					dp[i][j] = true;
+//				else {
+//					for (int k = i; k < j; ++k) {
+//						if (dp[i][k] && dp[k + 1][j]) {
+//							dp[i][j] = true;
+//							break;
+//						}
+//					}
+//				}
+//			}
+//		}
+//		return dp[0][n - 1];
+//	}
 }

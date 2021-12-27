@@ -25,3 +25,5 @@ public class Q1249_MinimumRemoveToMakeValidParentheses {
 		return result.reverse().toString();
 	}
 }
+// ( ) ) ( ) ( ) (
+//     ) ( ) ( )

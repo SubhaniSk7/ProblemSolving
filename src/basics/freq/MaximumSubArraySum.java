@@ -14,24 +14,10 @@ public class MaximumSubArraySum {
 		for (int i = 0; i < n; ++i)
 			arr[i] = Integer.parseInt(st.nextToken());
 		solution_1(n, arr);
-		solution_2(n, arr);
 		solution_3(n, arr);
 	}
 
 	public static void solution_1(int n, int[] arr) {
-		int maxSum = 0;
-		for (int i = 0; i < n; ++i) {
-			for (int j = i; j < n; ++j) {
-				int sum = 0;
-				for (int k = i; k < j; ++k)
-					sum += arr[k];
-				maxSum = Math.max(maxSum, sum);
-			}
-		}
-		System.out.println(maxSum);
-	}
-
-	public static void solution_2(int n, int[] arr) {
 		int ans = 0;
 		for (int i = 0; i < n; ++i) {
 			int temp = 0;
@@ -43,7 +29,7 @@ public class MaximumSubArraySum {
 		System.out.println(ans);
 	}
 
-	public static void solution_3(int n, int[] arr) {
+	public static void solution_3(int n, int[] arr) {// kadane's algo
 		int ans = 0, temp = 0;
 		for (int i = 0; i < n; ++i) {
 			temp = Math.max(arr[i], temp + arr[i]);

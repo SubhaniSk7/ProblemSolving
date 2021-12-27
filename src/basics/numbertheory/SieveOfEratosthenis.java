@@ -17,7 +17,6 @@ public class SieveOfEratosthenis {
 	public static void algo(long n) {
 		for (long i = 1; i <= n; ++i)
 			primes.put(i, true);
-
 		for (long i = 2; i * i <= n; ++i) {
 			if (primes.get(i) == true) {
 				for (long j = i * i; j <= n; j += i)
@@ -25,7 +24,6 @@ public class SieveOfEratosthenis {
 			}
 		}
 
-		System.out.println("Primes upto n:");
 		for (long i = 2; i <= n; ++i) {
 			if (primes.get(i) == true)
 				System.out.print(i + " ");

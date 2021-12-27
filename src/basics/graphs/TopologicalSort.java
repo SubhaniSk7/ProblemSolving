@@ -20,7 +20,7 @@ public class TopologicalSort {
 	public static int n, e;
 	public static ArrayList<Set<Integer>> vertices;
 	public static boolean[] visited;
-	public static Stack<Integer> order = new Stack<Integer>();
+	public static Stack<Integer> stack = new Stack<Integer>();
 
 	public static void read() throws IOException {
 		BufferedReader br = new BufferedReader(
@@ -49,8 +49,8 @@ public class TopologicalSort {
 		visited = new boolean[n];
 		utils.printGraph(vertices, out);
 		topologicalSort();
-		while (!order.isEmpty())
-			System.out.print(order.pop() + " ");
+		while (!stack.isEmpty())
+			System.out.print(stack.pop() + " ");
 	}
 
 	public static void topologicalSort() {
@@ -68,6 +68,6 @@ public class TopologicalSort {
 			if (!visited[neighbour])
 				dfs(neighbour);
 		}
-		order.push(source);
+		stack.push(source);
 	}
 }

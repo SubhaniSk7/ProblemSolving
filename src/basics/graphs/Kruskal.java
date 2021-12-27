@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-public class Kruskal {
+public class Kruskal {// MST - Minimal Spanning Tree
 	static BufferedReader br;
 	static PrintStream out;
 

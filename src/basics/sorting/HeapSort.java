@@ -3,18 +3,17 @@ package basics.sorting;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class HeapSort {
 	public static void main(String subhani[]) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		int n = Integer.parseInt(st.nextToken());
+		int n = Integer.parseInt(br.readLine());
 		int[] arr = new int[n];
-		st = new StringTokenizer(br.readLine());
+		StringTokenizer st = new StringTokenizer(br.readLine());
 		for (int i = 0; i < n; i++)
 			arr[i] = Integer.parseInt(st.nextToken());
-		printArray(arr);
 		System.out.println("Ascending Order::used Max Heap.");
 		heapSort_ascending(arr);
 		System.out.println("Descending Order::used Min Heap.");
@@ -22,74 +21,58 @@ public class HeapSort {
 	}
 
 	public static void heapSort_ascending(int[] arr) {
-		int i, n = arr.length;
-		for (i = n / 2 - 1; i >= 0; i--)
+		int n = arr.length;
+		for (int i = n / 2 - 1; i >= 0; i--)
 			maxHeapify(arr, i, n);
 		System.out.println("-------------After maxHeapify");
-		printArray(arr);
-		for (i = n - 1; i >= 0; i--) {
-			int temp = arr[0];
-			arr[0] = arr[i];
-			arr[i] = temp;
-			System.out.println("----------------------------------");
-			printArray(arr);
+		System.out.println(Arrays.toString(arr));
+		for (int i = n - 1; i >= 0; i--) {
+			swap(arr, 0, i);
 			maxHeapify(arr, 0, i);
-			printArray(arr);
 		}
+		System.out.println(Arrays.toString(arr));
 	}
 
 	public static void heapSort_descending(int[] arr) {
-		int i, n = arr.length;
-		for (i = n / 2 - 1; i >= 0; i--)
+		int n = arr.length;
+		for (int i = n / 2 - 1; i >= 0; i--)
 			minHeapify(arr, i, n);
 		System.out.println("-------------After minHeapify");
-		printArray(arr);
-		for (i = n - 1; i >= 0; i--) {
-			int temp = arr[0];
-			arr[0] = arr[i];
-			arr[i] = temp;
-			System.out.println("----------------------------------");
-			printArray(arr);
+		System.out.println(Arrays.toString(arr));
+		for (int i = n - 1; i >= 0; i--) {
+			swap(arr, 0, i);
 			minHeapify(arr, 0, i);
-			printArray(arr);
 		}
+		System.out.println(Arrays.toString(arr));
 	}
 
 	public static void maxHeapify(int[] arr, int i, int n) {
-		int largest = i;
-		int l = 2 * i + 1;
-		int r = 2 * i + 2;
+		int largest = i, l = 2 * i + 1, r = 2 * i + 2;
 		if (l < n && arr[largest] < arr[l])
 			largest = l;
 		if (r < n && arr[largest] < arr[r])
 			largest = r;
 		if (largest != i) {
-			int temp = arr[i];
-			arr[i] = arr[largest];
-			arr[largest] = temp;
+			swap(arr, i, largest);
 			maxHeapify(arr, largest, n);
 		}
 	}
 
 	public static void minHeapify(int[] arr, int i, int n) {
-		int smallest = i;
-		int l = 2 * i + 1;
-		int r = 2 * i + 2;
+		int smallest = i, l = 2 * i + 1, r = 2 * i + 2;
 		if (l < n && arr[smallest] > arr[l])
 			smallest = l;
 		if (r < n && arr[smallest] > arr[r])
 			smallest = r;
 		if (smallest != i) {
-			int temp = arr[i];
-			arr[i] = arr[smallest];
-			arr[smallest] = temp;
+			swap(arr, i, smallest);
 			minHeapify(arr, smallest, n);
 		}
 	}
 
-	public static void printArray(int[] arr) {
-		for (int i = 0; i < arr.length; i++)
-			System.out.print(arr[i] + " ");
-		System.out.println();
+	public static void swap(int[] arr, int i, int j) {
+		int temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
 	}
 }

@@ -3,10 +3,10 @@ package leetproblems;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Q39_CombinationSum {
+public class Q39_CombinationSum {// Order does matter
 	List<List<Integer>> result = new ArrayList<>();
 
-	public List<List<Integer>> combinationSum(int[] candidates, int target) {
+	public List<List<Integer>> combinationSum(int[] candidates, int target) {// here given distinct elements
 		if (candidates.length == 0)
 			return result;
 		rec(candidates, target, 0, new ArrayList<Integer>());

@@ -42,16 +42,14 @@ public class MinHeap {
 
 	// Min-Heap
 	public static void minHeap(int[] arr) {
-		int i;
-		for (i = heapLength / 2 - 1; i >= 0; i--)
+		for (int i = heapLength / 2 - 1; i >= 0; i--)
 			minHeapify(arr, i, heapLength);
 		printArray(arr);
 	}
 
 	// Ascending Order
 	public static void sort(int[] arr) {
-		int i;
-		for (i = heapLength - 1; i >= 0; i--) {
+		for (int i = heapLength - 1; i >= 0; i--) {
 			swap(arr, 0, i);
 			minHeapify(arr, 0, i);
 		}

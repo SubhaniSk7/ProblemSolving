@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintStream;
 
-public class Q122_BestTimeToBuyAndSellStockII {
+public class Q122_BestTimeToBuyAndSellStockII {// Many Transaction
 	public static BufferedReader br;
 	public static PrintStream out;
 
@@ -29,12 +29,11 @@ public class Q122_BestTimeToBuyAndSellStockII {
 	}
 
 	public int maxProfit_1(int[] prices) {// Errichto
-		int best_without_stock = 0, best_with_stock = Integer.MIN_VALUE;
+		int sell = 0, buy = Integer.MIN_VALUE;
 		for (int x : prices) {
-			best_with_stock = Math.max(best_with_stock, best_without_stock - x);
-			best_without_stock = Math.max(best_without_stock, best_with_stock + x);
-//			out.println(best_with_stock + " " + best_without_stock);
+			buy = Math.max(buy, sell - x);
+			sell = Math.max(sell, buy + x);
 		}
-		return best_without_stock;
+		return sell;
 	}
 }

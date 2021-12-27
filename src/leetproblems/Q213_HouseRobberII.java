@@ -2,6 +2,12 @@ package leetproblems;
 
 public class Q213_HouseRobberII {
 	// 2 cases: from 0-->n-2 & 1-->n-1
+	public static void main(String[] subhani) {
+		int[] arr = { 1, 2, 3, 4, 5 };
+		Q213_HouseRobberII obj = new Q213_HouseRobberII();
+		System.out.println(obj.rob(arr));
+	}
+
 	public int rob(int[] nums) {
 		int n = nums.length;
 		if (n == 1)

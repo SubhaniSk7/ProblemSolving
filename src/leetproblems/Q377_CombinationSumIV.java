@@ -1,6 +1,6 @@
 package leetproblems;
 
-public class Q377_CombinationSumIV {
+public class Q377_CombinationSumIV {// Order matters
 	public int combinationSum4(int[] nums, int target) {
 		int n = nums.length, s = target;
 		int[] dp = new int[s + 1];

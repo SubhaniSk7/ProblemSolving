@@ -22,16 +22,29 @@ public class Q153_FindMinimumInRotatedSortedArray {
 			int mid = L + (R - L) / 2;
 			if (mid == 0 && nums[mid] <= nums[R])
 				return nums[mid];
-			if (mid > 0 && nums[mid - 1] > nums[mid]) {
+			if (mid > 0 && nums[mid - 1] > nums[mid])
 				return nums[mid];
-			} else if (mid < n - 1 && nums[mid] > nums[mid + 1]) {
+			else if (mid < n - 1 && nums[mid] > nums[mid + 1])
 				return nums[mid + 1];
-			} else if (nums[mid] >= nums[R]) {// left sorted
+			else if (nums[mid] >= nums[R]) // left sorted
 				L = mid + 1;
-			} else {// right sorted: [mid]<=[L]
+			else // right sorted: [mid]<=[L]
 				R = mid - 1;
-			}
 		}
 		return ans;
+	}
+
+	public int findMin_1(int[] nums) {// if rotated nums[mid] < nums[mid-1]--> ans: nums[mid] ; if not nums[0]
+		int L = 0, R = nums.length - 1;
+		while (L <= R) {
+			int mid = L + (R - L) / 2;
+			if (mid > 0 && nums[mid] < nums[mid - 1])
+				return nums[mid];
+			else if (nums[L] <= nums[mid] && nums[mid] > nums[R])
+				L = mid + 1;
+			else
+				R = mid - 1;
+		}
+		return nums[L];
 	}
 }

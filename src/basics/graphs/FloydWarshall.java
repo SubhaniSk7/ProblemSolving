@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.StringTokenizer;
 
-public class FloydWarshall {
+public class FloydWarshall {// Shortest Distance between two nodes
 	static BufferedReader br;
 	static PrintStream out;
 
@@ -18,9 +18,7 @@ public class FloydWarshall {
 	public static void read() throws IOException {
 		br = new BufferedReader(new FileReader("F:\\Git Space\\CompetitiveCoding\\src\\basics\\graphs\\input.txt"));
 		boolean append = false, autoFlush = true;
-		out = new PrintStream(
-				new FileOutputStream("F:\\Git Space\\CompetitiveCoding\\src\\basics\\graphs\\output.txt", append),
-				autoFlush);
+		out = new PrintStream(new FileOutputStream("F:\\Git Space\\CompetitiveCoding\\src\\basics\\graphs\\output.txt", append), autoFlush);
 
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		n = Integer.parseInt(st.nextToken());
@@ -30,8 +28,7 @@ public class FloydWarshall {
 		adjMatrix = new int[n + 1][n + 1];
 		for (int i = 0; i < e; ++i) {
 			st = new StringTokenizer(br.readLine());
-			int u = Integer.parseInt(st.nextToken()), v = Integer.parseInt(st.nextToken()),
-					w = Integer.parseInt(st.nextToken());
+			int u = Integer.parseInt(st.nextToken()), v = Integer.parseInt(st.nextToken()), w = Integer.parseInt(st.nextToken());
 			adjMatrix[u][v] = w;
 			adjMatrix[v][u] = w;
 		}

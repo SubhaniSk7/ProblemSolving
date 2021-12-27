@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.StringTokenizer;
 
-public class BellmanFord {
+public class BellmanFord {// Shortest distance from source to destination
 	static BufferedReader br;
 	static PrintStream out;
 
@@ -72,7 +72,7 @@ public class BellmanFord {
 		for (int i = 1; i <= n; ++i) {// generally n-1 times and extra 1 time for detecting -ve edge cycle
 			for (int[] ed : edges) {
 				int u = ed[0], v = ed[1], w = ed[2];
-				if (distance.get(v) > distance.get(u) + w) {
+				if (distance.get(v) > distance.get(u) + w) {// relaxing edge
 					distance.set(v, distance.get(u) + w);
 					parent.set(v, u);
 				}

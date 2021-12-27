@@ -3,32 +3,27 @@ package basics.sorting;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class RadixSort {
 	public static void main(String subhani[]) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int n = Integer.parseInt(br.readLine());
+		int arr[] = new int[n], max = Integer.MIN_VALUE;
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		int n = Integer.parseInt(st.nextToken());
-		int arr[] = new int[n], i, max = Integer.MIN_VALUE;
-		st = new StringTokenizer(br.readLine());
-		for (i = 0; i < n; i++) {
+		for (int i = 0; i < n; i++) {
 			arr[i] = Integer.parseInt(st.nextToken());
 			if (max < arr[i])
 				max = arr[i];
 		}
-		int exp;
-		for (exp = 1; max / exp > 0; exp *= 10)
+		for (int exp = 1; max / exp > 0; exp *= 10)
 			countingSort(arr, n, exp);
-		System.out.println();
-		for (i = 0; i < n; i++)
-			System.out.print(arr[i] + " ");
-		System.out.println();
+		System.out.println(Arrays.toString(arr));
 	}
 
 	public static void countingSort(int[] arr, int n, int exp) {
-		int[] output = new int[n];
-		int count[] = new int[10];
+		int[] output = new int[n], count = new int[10];
 		for (int i = 0; i < n; i++)
 			count[(arr[i] / exp) % 10]++;
 		for (int i = 1; i < 10; i++)

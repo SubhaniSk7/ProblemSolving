@@ -13,7 +13,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
-public class Dijkstra {
+public class Dijkstra {// Shortest distance from source to destination
 	public static PrintStream out;
 	public static BufferedReader br;
 	public static GraphUtils utils = new GraphUtils();
@@ -29,9 +29,7 @@ public class Dijkstra {
 	public static void read() throws IOException {
 		br = new BufferedReader(new FileReader("F:\\Git Space\\CompetitiveCoding\\src\\basics\\graphs\\input.txt"));
 		boolean append = false, autoFlush = true;
-		out = new PrintStream(
-				new FileOutputStream("F:\\Git Space\\CompetitiveCoding\\src\\basics\\graphs\\output.txt", append),
-				autoFlush);
+		out = new PrintStream(new FileOutputStream("F:\\Git Space\\CompetitiveCoding\\src\\basics\\graphs\\output.txt", append), autoFlush);
 
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		n = Integer.parseInt(st.nextToken());// 1 to n
@@ -51,8 +49,7 @@ public class Dijkstra {
 		}
 		for (int i = 0; i < e; ++i) {
 			st = new StringTokenizer(br.readLine());
-			int u = Integer.parseInt(st.nextToken()), v = Integer.parseInt(st.nextToken()),
-					w = Integer.parseInt(st.nextToken());
+			int u = Integer.parseInt(st.nextToken()), v = Integer.parseInt(st.nextToken()), w = Integer.parseInt(st.nextToken());
 			weights[u][v] = w;
 			weights[v][u] = w;
 			vertices.get(u).add(v);

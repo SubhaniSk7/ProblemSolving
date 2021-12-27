@@ -12,10 +12,8 @@ public class Tree {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int choice;
 		do {
-			System.out.println("\n\n********************************\n\t1.isEmpty\n\t" + "2.Print Tree(Traversals)\n\t"
-					+ "3.Insert\n\t" + "4.Update Node\n\t" + "5.Delete Node\n\t" + "6.Search\n\t"
-					+ "7.Height of Tree\n\t" + "8.FindMin\n\t" + "9.FindMax\n\t" + "10.Inorder Predecessor\n\t"
-					+ "11.Inorder Successor\n\t" + "12.exit\n" + "********************************enter choice:");
+			System.out.println("\n\n********************************\n\t1.isEmpty\n\t" + "2.Print Tree(Traversals)\n\t" + "3.Insert\n\t" + "4.Update Node\n\t" + "5.Delete Node\n\t" + "6.Search\n\t" + "7.Height of Tree\n\t" + "8.FindMin\n\t"
+					+ "9.FindMax\n\t" + "10.Inorder Predecessor\n\t" + "11.Inorder Successor\n\t" + "12.exit\n" + "********************************enter choice:");
 
 			choice = Integer.parseInt(br.readLine());
 			switch (choice) {
@@ -27,24 +25,30 @@ public class Tree {
 				TreeTraversalsIterative traverse_1 = new TreeTraversalsIterative();
 				System.out.println();
 				if (!tree.isEmpty()) {
+					System.out.println("PreOrder:");
+					traverse.preOrder(root);
+					System.out.println();
+					traverse_1.preOrder(root);
+					System.out.println();
+					traverse_1.morris_preOrder(root);
+					System.out.println();
+
 					System.out.println("InOrder:");
 					traverse.inOrder(root);
 					System.out.println();
 					traverse_1.inOrder(root);
 					System.out.println();
-
-					System.out.println("PreOrder:");
-					traverse.preOrder(root);
+					traverse_1.morris_inOrder(root);
 					System.out.println();
-					traverse_1.preOrder(root);
 
-					System.out.println();
 					System.out.println("PostOrder:");
 					traverse.postOrder(root);
 					System.out.println();
 					traverse_1.postOrder(root);
-
 					System.out.println();
+					traverse_1.morris_postOrder(root);
+					System.out.println();
+
 					System.out.println("LevelOrder:");
 					traverse.levelOrder(root);
 				} else
@@ -54,9 +58,9 @@ public class Tree {
 				TreeInsert treeInsert = new TreeInsert();
 				System.out.println("Enter no.of elements:");
 //				int n = Integer.parseInt(br.readLine());
-				int n = 7;
+				int n = 5;
 				int element;
-				int[] a = { 5, 3, 7, 2, 4, 6, 8 };
+				int[] a = { 4, 5, 2, 3, 1 };
 				for (int i = 0; i < n; i++) {
 					System.out.println("Enter element:");
 //					element = Integer.parseInt(br.readLine());

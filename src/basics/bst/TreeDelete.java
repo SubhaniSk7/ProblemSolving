@@ -2,12 +2,10 @@ package basics.bst;
 
 public class TreeDelete {
 	public TreeNode delete(TreeNode root, int element) {
-
 		if (root == null) {
 			System.out.println("Tree is Empty.");
 			return root;
 		}
-
 		if (element < root.val)
 			root.left = delete(root.left, element);
 		else if (element > root.val)
@@ -26,12 +24,3 @@ public class TreeDelete {
 		return root;
 	}
 }
-
-// 		50
-// 30, 		70
-//20,40,  60, 80
-//after deletion observe preorder,inorder, postorder traversal
-
-// first delete 20--> have no children(leaf)
-// delete 30 --> have one child
-// delete 50 --> have both children

@@ -22,18 +22,15 @@ public class Q10_RegularExpressionMatching {
 
 		for (int i = 1; i <= m; ++i) {
 			for (int j = 1; j <= n; ++j) {
-				char s1 = s.charAt(i - 1);
-				char p1 = p.charAt(j - 1);
-				if (s1 == p1 || p1 == '.') {
+				char s1 = s.charAt(i - 1), p1 = p.charAt(j - 1);
+				if (s1 == p1 || p1 == '.')
 					dp[i][j] = dp[i - 1][j - 1];
-				} else if (p1 == '*') {
+				else if (p1 == '*') {
+					dp[i][j] = dp[i][j - 2];// consider _* as 0 occurrences
 					if (s1 == p.charAt(j - 2) || p.charAt(j - 2) == '.')
-						dp[i][j] = (dp[i][j - 1] || dp[i - 1][j] || dp[i][j - 2]);
-					else
-						dp[i][j] = dp[i][j - 2];
-				} else {
+						dp[i][j] = dp[i][j] || dp[i - 1][j];
+				} else
 					dp[i][j] = false;
-				}
 			}
 		}
 		return dp[m][n];

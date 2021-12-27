@@ -8,7 +8,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class Prims {
+public class Prims {// MST - Minimal Spanning Tree
 	static BufferedReader br;
 	static PrintStream out;
 
