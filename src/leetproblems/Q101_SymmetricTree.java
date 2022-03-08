@@ -14,6 +14,5 @@ public class Q101_SymmetricTree {
 		if (A != null && B != null && A.val == B.val)
 			return symmetric(A.left, B.right) && symmetric(A.right, B.left);
 		return false;
-
 	}
 }

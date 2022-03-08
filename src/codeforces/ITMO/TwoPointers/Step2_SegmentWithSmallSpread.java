@@ -56,7 +56,8 @@ public class Step2_SegmentWithSmallSpread {
 
 class MyStack {
 	Stack<Long> s = new Stack<>();
-	Stack<Long> smin = new Stack<>(), smax = new Stack<>();
+	Stack<Long> smin = new Stack<>();
+	Stack<Long> smax = new Stack<>();
 
 	public MyStack() {
 		this.smin.push(Long.MAX_VALUE);

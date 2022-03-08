@@ -36,8 +36,7 @@ public class MCM_MatrixChainMultiplication {
 			return 0;
 		int min = Integer.MAX_VALUE;
 		for (int k = i; k < j; ++k) {
-			int operations = mcm_recursive(matrices, i, k) + mcm_recursive(matrices, k + 1, j)
-					+ matrices[i - 1] * matrices[k] * matrices[j];
+			int operations = mcm_recursive(matrices, i, k) + mcm_recursive(matrices, k + 1, j) + matrices[i - 1] * matrices[k] * matrices[j];
 			min = Math.min(min, operations);
 		}
 		return min;
@@ -50,8 +49,8 @@ public class MCM_MatrixChainMultiplication {
 			return operations[i][j];
 		operations[i][j] = Integer.MAX_VALUE;
 		for (int k = i; k < j; ++k) {
-			operations[i][j] = Math.min(operations[i][j], mcm_bup(matrices, i, k) + mcm_bup(matrices, k + 1, j)
-					+ matrices[i - 1] * matrices[k] * matrices[j]);
+			operations[i][j] = Math.min(operations[i][j],
+					mcm_bup(matrices, i, k) + mcm_bup(matrices, k + 1, j) + matrices[i - 1] * matrices[k] * matrices[j]);
 			System.out.println(i + " " + k + " " + j + " " + operations[i][j]);
 		}
 		return operations[i][j];
@@ -62,16 +61,15 @@ public class MCM_MatrixChainMultiplication {
 		for (int i = 0; i < n; ++i)
 			dp[i][i] = 0;
 
-		for (int len = 2; len < n; len++) {
-			for (int i = 1; i < n - len + 1; ++i) {
+		for (int len = 2; len < n; len++) {// all lengths
+			for (int i = 1; i < n - len + 1; ++i) {// 'len' length segments
 				int j = i + len - 1;
 				if (j == n)
 					continue;
 				dp[i][j] = Integer.MAX_VALUE;
 				for (int k = i; k < j; ++k) {
-					System.out.println(len + " " + i + " " + j + " " + k);
-					dp[i][j] = Math.min(dp[i][j],
-							dp[i][k] + dp[k + 1][j] + matrices[i - 1] * matrices[k] * matrices[j]);
+//					System.out.println(len + " " + i + " " + j + " " + k);
+					dp[i][j] = Math.min(dp[i][j], dp[i][k] + dp[k + 1][j] + matrices[i - 1] * matrices[k] * matrices[j]);
 				}
 			}
 		}

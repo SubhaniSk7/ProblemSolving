@@ -22,12 +22,9 @@ public class BFS {
 	public static ArrayList<Set<Integer>> vertices;
 
 	public static void read() throws IOException {
-		BufferedReader br = new BufferedReader(
-				new FileReader("F:\\Git Space\\CompetitiveCoding\\src\\basics\\graphs\\input.txt"));
+		BufferedReader br = new BufferedReader(new FileReader("F:\\Git Space\\CompetitiveCoding\\src\\basics\\graphs\\input.txt"));
 		boolean append = false, autoFlush = true;
-		out = new PrintStream(
-				new FileOutputStream("F:\\Git Space\\CompetitiveCoding\\src\\basics\\graphs\\output.txt", append),
-				autoFlush);
+		out = new PrintStream(new FileOutputStream("F:\\Git Space\\CompetitiveCoding\\src\\basics\\graphs\\output.txt", append), autoFlush);
 
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		n = Integer.parseInt(st.nextToken());
@@ -48,7 +45,8 @@ public class BFS {
 	public static void main(String[] subhani) throws IOException, NumberFormatException {
 		read();
 		utils.printGraph(vertices, out);
-		bfs(0);
+		int src = 0;
+		bfs(src);
 	}
 
 	public static void bfs(int source) {

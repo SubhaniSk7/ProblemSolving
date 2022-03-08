@@ -41,7 +41,7 @@ public class Knapsack_0_1 {
 					dp[i][j] = dp[i - 1][j];
 			}
 		}
-//		print(dp, n + 1, W + 1);
+//		print(dp, n + 1, capacity + 1);
 		System.out.println(dp[n][capacity]);
 	}
 
@@ -57,8 +57,8 @@ public class Knapsack_0_1 {
 //	}
 
 	public static void print(int[][] dp, int rows, int columns) {
-		for (int i = 0; i <= rows; ++i) {
-			for (int j = 0; j <= columns; ++j)
+		for (int i = 0; i < rows; ++i) {
+			for (int j = 0; j < columns; ++j)
 				System.out.print(dp[i][j] + " ");
 			System.out.println();
 		}

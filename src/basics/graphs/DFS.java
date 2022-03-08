@@ -21,12 +21,9 @@ public class DFS {
 	public static ArrayList<Set<Integer>> vertices;
 
 	public static void read() throws IOException {
-		BufferedReader br = new BufferedReader(
-				new FileReader("F:\\Git Space\\CompetitiveCoding\\src\\basics\\graphs\\input.txt"));
+		BufferedReader br = new BufferedReader(new FileReader("F:\\Git Space\\CompetitiveCoding\\src\\basics\\graphs\\input.txt"));
 		boolean append = false, autoFlush = true;
-		out = new PrintStream(
-				new FileOutputStream("F:\\Git Space\\CompetitiveCoding\\src\\basics\\graphs\\output.txt", append),
-				autoFlush);
+		out = new PrintStream(new FileOutputStream("F:\\Git Space\\CompetitiveCoding\\src\\basics\\graphs\\output.txt", append), autoFlush);
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		n = Integer.parseInt(st.nextToken());
 		e = Integer.parseInt(st.nextToken());
@@ -47,7 +44,8 @@ public class DFS {
 	public static void main(String[] subhani) throws IOException, NumberFormatException {
 		read();
 		utils.printGraph(vertices, out);
-		dfs(2);
+		int src = 2;
+		dfs(src);
 	}
 
 	public static void dfs(int source) {

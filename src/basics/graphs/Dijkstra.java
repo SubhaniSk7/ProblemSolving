@@ -94,14 +94,13 @@ public class Dijkstra {// Shortest distance from source to destination
 	}
 
 	public static void relaxEdge(int u) {
-		for (int neighbor : vertices.get(u)) {
-			if (!explored.contains(neighbor)) {
-				int newDistance = distance.get(u) + weights[u][neighbor];
-				if (distance.get(neighbor) > newDistance) {
-					distance.set(neighbor, newDistance);
-					parent.set(neighbor, u);
+		for (int v : vertices.get(u)) {
+			if (!explored.contains(v)) {
+				if (distance.get(v) > distance.get(u) + weights[u][v]) {
+					distance.set(v, distance.get(u) + weights[u][v]);
+					parent.set(v, u);
 				}
-				pq.offer(new int[] { neighbor, distance.get(neighbor) });
+				pq.offer(new int[] { v, distance.get(v) });
 			}
 		}
 	}

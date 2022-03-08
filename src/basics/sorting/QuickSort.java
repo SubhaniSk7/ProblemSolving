@@ -27,18 +27,20 @@ public class QuickSort {
 	}
 
 	public static int partition(int[] arr, int start, int end) {
-		int pivot = arr[end], i = start - 1, j, temp;
+		int pivot = arr[end], i = start - 1, j;
 		for (j = start; j < end; j++) {
 			if (arr[j] <= pivot) {
 				i++;
-				temp = arr[j];
-				arr[j] = arr[i];
-				arr[i] = temp;
+				swap(arr, i, j);
 			}
 		}
-		temp = arr[i + 1];
-		arr[i + 1] = arr[end];
-		arr[end] = temp;
+		swap(arr, i + 1, end);
 		return i + 1;
+	}
+
+	public static void swap(int[] arr, int i, int j) {
+		int temp = arr[j];
+		arr[j] = arr[i];
+		arr[i] = temp;
 	}
 }

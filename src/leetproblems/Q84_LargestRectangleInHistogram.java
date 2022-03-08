@@ -4,6 +4,7 @@ import java.util.Stack;
 
 public class Q84_LargestRectangleInHistogram {
 	public int largestRectangleArea(int[] heights) {
+
 		int n = heights.length;
 		Stack<Integer> stack = new Stack<>();
 		int[] leftSmall = new int[n];

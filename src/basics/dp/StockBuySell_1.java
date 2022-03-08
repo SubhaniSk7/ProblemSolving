@@ -20,11 +20,10 @@ public class StockBuySell_1 {// only once
 	public static void solve(int n, int[] stocks) {
 		int profit = 0, min = Integer.MAX_VALUE;
 		for (int i = 0; i < n; ++i) {
-			if (min > stocks[i]) {
+			if (min > stocks[i])
 				min = stocks[i];
-			} else {
+			else
 				profit = Math.max(profit, stocks[i] - min);
-			}
 		}
 		System.out.println(profit);
 	}

@@ -1,4 +1,4 @@
-package Q1399;
+package leetproblems;
 
 import java.util.HashMap;
 

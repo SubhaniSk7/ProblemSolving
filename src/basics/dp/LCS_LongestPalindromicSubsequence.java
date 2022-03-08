@@ -33,7 +33,7 @@ public class LCS_LongestPalindromicSubsequence {
 		System.out.println(dp[n][m]);
 	}
 
-	public static void lps_1(String x, int n) {
+	public static void lps_1(String x, int n) {// Matrix Chain Multiplication type
 		int m = n;
 		String y = new StringBuilder(x).toString();
 		int[][] dp = new int[n][m];

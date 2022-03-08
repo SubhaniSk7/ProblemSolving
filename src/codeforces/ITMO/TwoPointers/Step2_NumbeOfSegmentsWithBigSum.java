@@ -19,12 +19,12 @@ public class Step2_NumbeOfSegmentsWithBigSum {
 		solve(n, a, s);
 	}
 
-	public static void solve(int n, int[] a, long s) {
+	public static void solve(int n, int[] a, long S) {
 		int l = 0;
 		long sum = 0, ans = 0;
 		for (int r = 0; r < n; ++r) {
 			sum += a[r];
-			while (sum >= s) {
+			while (sum >= S) {
 				sum -= a[l];
 				l++;
 			}

@@ -15,6 +15,7 @@ public class MaximumSubArraySum {
 			arr[i] = Integer.parseInt(st.nextToken());
 		solution_1(n, arr);
 		solution_3(n, arr);
+		solution_7(arr);
 	}
 
 	public static void solution_1(int n, int[] arr) {
@@ -50,15 +51,14 @@ public class MaximumSubArraySum {
 		System.out.println(ans);
 	}
 
-	public static void solution_5(int[] nums) {// with atleast one number
-		int ans = Integer.MIN_VALUE;
-		int a = 0;
+	public static void solution_5(int[] nums) {// with atleast one number // Kadanes algo
+		int max_so_far = Integer.MIN_VALUE, max_ending_here = 0;
 		for (int x : nums) {
-			a += x;
-			ans = Math.max(ans, a);
-			a = Math.max(a, 0);
+			max_ending_here += x;
+			max_so_far = Math.max(max_so_far, max_ending_here);
+			max_ending_here = Math.max(max_ending_here, 0);
 		}
-		System.out.println(ans);
+		System.out.println(max_so_far);
 	}
 
 	public static void solution_6(int[] nums) {// with atleast one number
@@ -73,4 +73,27 @@ public class MaximumSubArraySum {
 			min_so_far = Math.min(min_so_far, pref[i]);
 		}
 	}
+
+	public static void solution_7(int[] nums) {// with atleast one number // Kadanes algo
+		int max_so_far = Integer.MIN_VALUE, max_ending_here = 0;
+		int s = 0, start = 0, end = 0;
+		for (int i = 0; i < nums.length; ++i) {
+			max_ending_here += nums[i];
+			if (max_so_far < max_ending_here) {
+				max_so_far = max_ending_here;
+				start = s;
+				end = i;
+			}
+			if (max_ending_here < 0) {
+				s = i + 1;
+				max_ending_here = 0;
+			}
+		}
+		System.out.println(max_so_far + " " + start + " " + end);
+	}
 }
+// i/p:
+//8
+//-2 -3 4 -1 -2 1 5 -3
+//o/p: 7
+// output for solution_7: 7 2 6

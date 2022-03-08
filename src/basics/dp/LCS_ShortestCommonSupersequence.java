@@ -33,7 +33,7 @@ public class LCS_ShortestCommonSupersequence {
 		int lcs = dp[n][m];
 		print(dp, n, m);
 		System.out.println(n + m - lcs);
-		printSCSfromLCS(x, y, dp, n, m);
+		printSCSS(x, y, dp, n, m);
 	}
 
 	public static void scss_1(String x, String y, int n, int m) {
@@ -56,7 +56,7 @@ public class LCS_ShortestCommonSupersequence {
 		printSCSfromSCSS_1(x, y, dp, n, m);
 	}
 
-	public static void printSCSfromLCS(String x, String y, int[][] dp, int n, int m) {
+	public static void printSCSS(String x, String y, int[][] dp, int n, int m) {
 		int i = n, j = m;
 		StringBuilder s = new StringBuilder();
 		while (i > 0 && j > 0) {

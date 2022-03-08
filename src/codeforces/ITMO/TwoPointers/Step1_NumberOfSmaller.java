@@ -26,7 +26,7 @@ public class Step1_NumberOfSmaller {
 		int[] count = new int[m];
 		int i = 0, j = 0;
 		while (i < n || j < m) {
-			if (j == m || i < n && a[i] < b[j]) {
+			if (j == m || (i < n && a[i] < b[j])) {
 				i++;
 			} else {
 				count[j] = i;

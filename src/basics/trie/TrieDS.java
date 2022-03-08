@@ -71,4 +71,23 @@ public class TrieDS {
 		TrieNode current = root;
 		// ToDo
 	}
+
+	public boolean dfs(String word, TrieNode cur) {
+		for (int i = 0; i < word.length(); ++i) {
+			char ch = word.charAt(i);
+			if (ch == '.') {
+				for (int k = 0; k < 26; ++k) {
+					if (cur.children[k] != null && dfs(word.substring(i + 1), cur.children[k]))
+						return true;
+				}
+				return false;
+			} else {
+				int index = ch - 'a';
+				if (cur.children[index] == null)
+					return false;
+				cur = cur.children[index];
+			}
+		}
+		return cur != null && cur.isEnd;
+	}
 }

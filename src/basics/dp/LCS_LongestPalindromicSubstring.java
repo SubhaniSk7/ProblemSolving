@@ -8,7 +8,7 @@ public class LCS_LongestPalindromicSubstring {
 	public static void main(String[] subhani) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 //		String s = br.readLine();
-		String s = "geeks";
+		String s = "forgeeksskeegfor";
 //		System.out.println(lps_0(s));
 		System.out.println(lps_1(s));
 	}
@@ -29,7 +29,7 @@ public class LCS_LongestPalindromicSubstring {
 		return result;
 	}
 
-	public static String lps_1(String s) {
+	public static String lps_1(String s) {// MCM type
 		int n = s.length();
 		String ans = "";
 		int[][] dp = new int[n][n];

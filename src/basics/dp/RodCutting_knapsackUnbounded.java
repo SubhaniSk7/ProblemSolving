@@ -44,7 +44,12 @@ public class RodCutting_knapsackUnbounded {
 	}
 
 	public static void print(int[][] dp, int rows, int columns) {
+		System.out.print("  ");
+		for (int j = 0; j <= columns; ++j)
+			System.out.print(" " + j);
+		System.out.println();
 		for (int i = 0; i <= rows; ++i) {
+			System.out.print(i + "  ");
 			for (int j = 0; j <= columns; ++j)
 				System.out.print(dp[i][j] + " ");
 			System.out.println();

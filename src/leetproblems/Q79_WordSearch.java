@@ -20,16 +20,18 @@ public class Q79_WordSearch {
 	public boolean search(int i, int j, int index, String word, char[][] board) {
 		if (index == word.length())
 			return true;
-		if (i < 0 || i >= board.length || j < 0 || j >= board[i].length || word.charAt(index) != board[i][j]
-				|| visited[i][j])
+		if (i < 0 || i >= board.length || j < 0 || j >= board[i].length || word.charAt(index) != board[i][j] || visited[i][j])
 			return false;
 
 		visited[i][j] = true;
-		if (search(i + 1, j, index + 1, word, board) || search(i - 1, j, index + 1, word, board)
-				|| search(i, j + 1, index + 1, word, board) || search(i, j - 1, index + 1, word, board))
+		boolean a = search(i + 1, j, index + 1, word, board);
+		boolean b = search(i - 1, j, index + 1, word, board);
+		boolean c = search(i, j + 1, index + 1, word, board);
+		boolean d = search(i, j - 1, index + 1, word, board);
+		if (a || b || c || d)
 			return true;
-
 		visited[i][j] = false;
+
 		return false;
 	}
 }
